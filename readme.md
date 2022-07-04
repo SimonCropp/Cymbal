@@ -40,8 +40,20 @@ Works around [symbols not being copied from references](https://github.com/dotne
 This is done at Build time.
 
 
-###  dotnet-symbol on Publish
+### dotnet-symbol on Publish
 
 On a [dotnet-publish](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish) any missing symbols are attempted to be downloaded via the [dotnet-symbol dotnet tool](https://www.nuget.org/packages/dotnet-symbol) [Source](https://github.com/dotnet/symstore).
 
 This is done at Publish time.
+
+
+## Usage
+
+Install the NuGet package in the top level project. i.e. the project that 'dotnet publish' is called on
+
+https://nuget.org/packages/Cymbal/
+
+```
+Install-Package Cymbal
+```
+

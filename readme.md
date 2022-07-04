@@ -87,7 +87,7 @@ This will result in a `.config/dotnet-tools.json` file:
 [dotnet tool restore](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-restore) can then be added to the build script:
 
 ```
-dotnet tool restore --configfile src/.config/dotnet-tools.json
+dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 ```
 
 

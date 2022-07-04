@@ -61,7 +61,7 @@ Install-Package Cymbal
 
 ## Build Server integration
 
-To enable the [dotnet-symbol tool](https://www.nuget.org/packages/dotnet-symbol) in a build environmens, the recomended approach is [install it as a local tool](https://docs.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use).
+To enable the [dotnet-symbol tool](https://www.nuget.org/packages/dotnet-symbol) in a build environment, the recommended approach is to [install it as a local tool](https://docs.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use).
 
 This will result in a `.config/dotnet-tools.json` file:
 

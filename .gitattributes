@@ -1,0 +1,7 @@
+* text
+*.snk binary
+*.png binary
+*.bmp binary
+*.tif binary
+
+src/Verify/EmptyFiles/* binary

@@ -1,0 +1,26 @@
+﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <CymbalAssembly>$(MSBuildThisFileDirectory)..\task\Cymbal.dll</CymbalAssembly>
+    <CymbalAssembly Condition="!Exists($(CymbalAssembly))">$(MSBuildThisFileDirectory)..\bin\IncludeTask\Cymbal.dll</CymbalAssembly>
+  </PropertyGroup>
+
+  <UsingTask
+    TaskName="Cymbal.CymbalTask"
+    AssemblyFile="$(CymbalAssembly)" />
+  <Target
+    Name="CymbalTarget"
+    AfterTargets="AfterPublish" >
+    <Cymbal.CymbalTask TargetOutputs="@(TargetOutputs)" />
+
+    <!--<Message Text="@(CopyLocalPathsToAdd,'%0a')" Importance="high" />-->
+  </Target>
+
+  <Target Name="IncludeSymbolFiles"
+          AfterTargets="ResolveAssemblyReferences"
+          Condition="@(ReferenceCopyLocalPaths) != ''">
+    <ItemGroup>
+      <ReferenceCopyLocalPaths Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb" />
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="!Exists('%(FullPath)')" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -56,6 +56,7 @@ public class Tests
                 .ScrubLinesContaining("Build started")
                 .ScrubLinesContaining("Time Elapsed")
                 .ScrubLinesContaining("Finished Cymbal")
+                .ScrubLinesContaining("Build Engine version")
                 .ScrubLinesContaining("Copying file from ");
         }
         finally

@@ -1,6 +1,5 @@
 ﻿{
   buildOutput:
-Microsoft (R) Build Engine version 17.3.0-preview-22277-01+f1dae6ab6 for .NET
 Copyright (C) Microsoft Corporation. All rights reserved.
 
      1>Project "{SolutionDirectory}SampleApp/SampleApp.csproj" on node 1 (Publish target(s)).

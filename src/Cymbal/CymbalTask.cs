@@ -58,7 +58,7 @@ PublishDir: {fullPublishPath}
 
         Log.LogMessageFromText($"Assemblies to process: {ListToIndented(toDownload)}", MessageImportance.Normal);
 
-        var result = ProcessRunner.Execute("dotnet-symbol", string.Join(" ", toDownload));
+        var result = ProcessRunner.Execute("dotnet", "tool run dotnet-symbol " + string.Join(" ", toDownload));
 
         var builder = new StringBuilder();
         foreach (var line in result)

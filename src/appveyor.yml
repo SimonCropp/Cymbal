@@ -2,7 +2,7 @@ image:
 - Visual Studio 2022
 #- macOS
 #- Ubuntu
-build_script:
+before_build:
 - pwsh: |
     dotnet tool restore --configfile src/.config/dotnet-tools.json
     if ($isWindows) {
@@ -18,6 +18,7 @@ build_script:
         sudo ./dotnet-install.sh --jsonfile src/global.json --architecture x64 --install-dir '/usr/share/dotnet'
       }
     }
+build_script:
 - dotnet build src --configuration Release
 - dotnet test src --configuration Release --no-build --no-restore
 test: off

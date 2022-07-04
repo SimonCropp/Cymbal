@@ -1,7 +1,7 @@
 image:
 - Visual Studio 2022
-- macOS
-- Ubuntu
+#- macOS
+#- Ubuntu
 build_script:
 - pwsh: |
     dotnet tool install --global dotnet-symbol

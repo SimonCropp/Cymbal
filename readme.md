@@ -6,15 +6,6 @@
 Cymbal is an MSBuild task that enables bundling dotnet symbols with a deployed app. The goal being to enable line numbers for exceptions in a production system.
 
 
-## dotnet-symbol required
-
-The [dotnet-symbol dotnet tool](https://www.nuget.org/packages/dotnet-symbol) is required to use this task.
-
-```
-dotnet tool install --global dotnet-symbol
-```
-
-
 ## Cymbal performs two operations
 
 
@@ -59,9 +50,16 @@ Install-Package Cymbal
 ```
 
 
-## Build Server integration
+## dotnet-symbol required
 
-To enable the [dotnet-symbol tool](https://www.nuget.org/packages/dotnet-symbol) in a build environment, the recommended approach is to [install it as a local tool](https://docs.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use).
+To install the [dotnet-symbol tool](https://www.nuget.org/packages/dotnet-symbol), the recommended approach is to [install it as a local tool](https://docs.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use).
+
+In the root of a repository execute:
+
+```
+dotnet new tool-manifest
+dotnet tool install dotnet-symbol
+```
 
 This will result in a `.config/dotnet-tools.json` file:
 
@@ -84,12 +82,17 @@ This will result in a `.config/dotnet-tools.json` file:
 <sup><a href='#snippet-src\.config\dotnet-tools.json' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-[dotnet tool restore](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-restore) can then be added to the build script:
+[dotnet tool restore](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-restore) can then be run locally or in a build environment:
+
+```
+dotnet tool restore
+```
+
+Or to point to nested directory: 
 
 ```
 dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 ```
-
 
 ## Icon
 

@@ -15,8 +15,8 @@
             PublishDir="$(PublishDir)" />
     <Message Text="@(TargetOutputs,'%0a')" Importance="high" />
   </Target>
-
-  <Target Name="IncludeSymbolFiles"
+<!-- begin-snippet: IncludeSymbolFromReferences-->
+  <Target Name="IncludeSymbolFromReferences"
           AfterTargets="ResolveAssemblyReferences"
           Condition="@(ReferenceCopyLocalPaths) != ''">
     <ItemGroup>
@@ -24,4 +24,5 @@
       <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="!Exists('%(FullPath)')" />
     </ItemGroup>
   </Target>
+<!-- end-snippet -->
 </Project>

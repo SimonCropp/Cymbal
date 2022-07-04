@@ -3,34 +3,45 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/gd7jvcs0nv8pawc8/branch/main?svg=true)](https://ci.appveyor.com/project/SimonCropp/cymbal)
 [![NuGet Status](https://img.shields.io/nuget/v/Cymbal.svg)](https://www.nuget.org/packages/Cymbal/)
 
-
-  <Target Name="IncludeSymbolFiles" AfterTargets="ResolveAssemblyReferences" Condition="@(ReferenceCopyLocalPaths) != ''">
-    <ItemGroup>
-      <ReferenceCopyLocalPaths Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb;
-                                          %(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).xml" />
-      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="!Exists('%(FullPath)')" />
-    </ItemGroup>
-  </Target>
+Cymbal is an MSBuild task that enables bundling dotnet symbols with a deployed app. The goal being to enable line numbers for exceptions in a production system.
 
 
-  https://github.com/dotnet/sdk/issues/1458
-  https://github.com/loic-sharma/symbols
+## dotnet-symbol required
+
+The [dotnet-symbol dotnet tool](https://www.nuget.org/packages/dotnet-symbol) is required to use this task.
+
+```
+dotnet tool install --global dotnet-symbol
+```
 
 
-  https://github.com/dotnet/symstore
-
-  https://www.nuget.org/packages/dotnet-symbol
-  
-  dotnet tool install --global dotnet-symbol 
-  
-  dotnet-symbol
-  
-  dotnet dotnet-symbol
-
-  https://github.com/dotnet/symstore/blob/main/src/Microsoft.SymbolStore/Microsoft.SymbolStore.csproj
+## Cymbal performs two tasks
 
 
-  https://github.com/loic-sharma/symbols
+### Copies symbols from references
+
+Works around [symbols not being copied from references](https://github.com/dotnet/sdk/issues/1458). This is done via manipulating `ReferenceCopyLocalPaths`:
+
+<!-- snippet: IncludeSymbolFromReferences -->
+<a id='snippet-includesymbolfromreferences'></a>
+```targets
+<Target Name="IncludeSymbolFromReferences"
+        AfterTargets="ResolveAssemblyReferences"
+        Condition="@(ReferenceCopyLocalPaths) != ''">
+  <ItemGroup>
+    <ReferenceCopyLocalPaths Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb" />
+    <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="!Exists('%(FullPath)')" />
+  </ItemGroup>
+</Target>
+```
+<sup><a href='/src/Cymbal/build/Cymbal.targets#L18-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+This is done at Build time.
 
 
-  dotnet tool install --global dotnet-symbol --version 1.0.321201
+###  dotnet-symbol on Publish
+
+On a [dotnet-publish](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish) any missing symbols are attempted to be downloaded via the [dotnet-symbol dotnet tool](https://www.nuget.org/packages/dotnet-symbol) [Source](https://github.com/dotnet/symstore).
+
+This is done at Publish time.

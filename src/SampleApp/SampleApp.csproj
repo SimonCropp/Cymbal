@@ -6,8 +6,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.6" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Serilog" Version="2.11.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AssemblyWithEmbeddedSymbols\AssemblyWithEmbeddedSymbols.csproj" />
+    <ProjectReference Include="..\AssemblyWithNoSymbols\AssemblyWithNoSymbols.csproj" />
+    <ProjectReference Include="..\AssemblyWithPdb\AssemblyWithPdb.csproj" />
   </ItemGroup>
   <Import Condition="$(Configuration) == 'IncludeTask'" Project="$(ProjectDir)..\Cymbal\build\Cymbal.targets" />
 </Project>

@@ -48,11 +48,17 @@ PublishDir: {fullPublishPath}
             return;
         }
 
-        Log.LogMessageFromText($"Files: {string.Join($"\t{Environment.NewLine}",files)}", MessageImportance.High);
+        var inputFilesString = $"{Environment.NewLine}\t{string.Join($"{Environment.NewLine}\t", files)}";
+        Log.LogMessageFromText($"Input assemblies: {inputFilesString}", MessageImportance.High);
 
         var result = ProcessRunner.Execute("dotnet-symbol", string.Join(" ",files));
 
-        Log.LogMessageFromText($"dotnet-symbol result: {result}", MessageImportance.High);
+        var builder = new StringBuilder();
+        foreach (var line in result)
+        {
+            builder.AppendLine($"\t{line}");
+        }
+        Log.LogMessageFromText($"dotnet-symbol result:{Environment.NewLine}{builder}", MessageImportance.High);
     }
 
     static IEnumerable<string> GetFiles(string fullPublishPath)

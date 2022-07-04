@@ -3,58 +3,45 @@
 Microsoft (R) Build Engine version 17.3.0-preview-22277-01+f1dae6ab6 for .NET
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 4/07/2022 8:44:52 PM.
      1>Project "{SolutionDirectory}SampleApp/SampleApp.csproj" on node 1 (Publish target(s)).
-     1>_CopyResolvedFilesToPublishPreserveNewest:
-       Building target "_CopyResolvedFilesToPublishPreserveNewest" partially, because some output files are out of date with respect to their input files.
-         Copying file from "{SolutionDirectory}SampleApp/obj/IncludeTask/SampleApp.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll".
-         Copying file from "{SolutionDirectory}SampleApp/obj/IncludeTask/SampleApp.pdb" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.pdb".
-         Copying file from "{UserProfile}/.nuget/packages/microsoft.aspnetcore.components/6.0.6/lib/net6.0/Microsoft.AspNetCore.Components.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll".
-         Copying file from "{SolutionDirectory}SampleApp/bin/IncludeTask/SampleApp.deps.json" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.deps.json".
-         Copying file from "{UserProfile}/.nuget/packages/microsoft.aspnetcore.authorization/6.0.6/lib/net6.0/Microsoft.AspNetCore.Authorization.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.dll".
-         Copying file from "{SolutionDirectory}SampleApp/bin/IncludeTask/SampleApp.runtimeconfig.json" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.runtimeconfig.json".
-         Copying file from "{UserProfile}/.nuget/packages/microsoft.extensions.logging.abstractions/6.0.1/lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.dll".
-         Copying file from "{UserProfile}/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/6.0.0/lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll".
-         Copying file from "{UserProfile}/.nuget/packages/microsoft.extensions.options/6.0.0/lib/netstandard2.1/Microsoft.Extensions.Options.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll".
-         Copying file from "{UserProfile}/.nuget/packages/microsoft.extensions.primitives/6.0.0/lib/net6.0/Microsoft.Extensions.Primitives.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll".
-         Copying file from "{UserProfile}/.nuget/packages/microsoft.aspnetcore.metadata/6.0.6/lib/net6.0/Microsoft.AspNetCore.Metadata.dll" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll".
+     1>PrepareForPublish:
+         Creating directory "bin/IncludeTask/publish/".
+       _CopyResolvedFilesToPublishPreserveNewest:
        _CopyResolvedFilesToPublishAlways:
-         Copying file from "{SolutionDirectory}SampleApp/obj/IncludeTask/apphost.exe" to "{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.exe".
        Publish:
          SampleApp -> {SolutionDirectory}SampleApp/bin/IncludeTask/publish/
        CymbalTarget:
          
          PublishDir: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/
          
-         Files: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Newtonsoft.Json.dll	
-         {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.dll
-         dotnet-symbol result: Downloading from http://msdl.microsoft.com/download/symbols/
-         Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
-         Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
-         Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
-         Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
-         Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
-         Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
-         Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
-         ERROR: Not Found: Newtonsoft.Json.pdb - 'http://msdl.microsoft.com/download/symbols/newtonsoft.json.pdb/ea1459bd62994707bad4678f3c25da61FFFFFFFF/newtonsoft.json.pdb'
-         ERROR: Not Found: Serilog.pdb - 'http://msdl.microsoft.com/download/symbols/serilog.pdb/64a28b43df634e7a92ea200fdaff56ecFFFFFFFF/serilog.pdb'
+         Input assemblies: 
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithNoSymbols.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll
+         dotnet-symbol result:
+         	Downloading from http://msdl.microsoft.com/download/symbols/
+         	ERROR: Not Found: AssemblyWithEmbeddedSymbols.pdb - 'http://msdl.microsoft.com/download/symbols/assemblywithembeddedsymbols.pdb/6845c2588eb44a8cb124f1fae921f541FFFFFFFF/assemblywithembeddedsymbols.pdb'
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
+         	
          
-         
-         Finished Cymbal 11296ms
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:12.11
 ,
   consoleOutput:
 asdas

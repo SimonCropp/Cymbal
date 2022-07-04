@@ -9,6 +9,8 @@ public class Tests
     {
         var solutionDir = AttributeReader.GetSolutionDirectory();
         var sampleAppPath = Path.Combine(solutionDir,"SampleApp");
+        var includeTaskDir = Path.Combine(sampleAppPath,@"bin\IncludeTask");
+        Directory.Delete(includeTaskDir, true);
 
         await Cli.Wrap("dotnet")
             .WithArguments("build --force --configuration IncludeTask --no-incremental")
@@ -47,7 +49,11 @@ public class Tests
                         consoleOutput = runResult.StandardOutput,
                         consoleError = runResult.StandardError
                     })
-                .ScrubLinesWithReplace(line => line.Replace('\\', '/'));
+                .ScrubLinesWithReplace(line => line.Replace('\\', '/'))
+                .ScrubLinesContaining("Build started")
+                .ScrubLinesContaining("Time Elapsed")
+                .ScrubLinesContaining("Finished Cymbal")
+                .ScrubLinesContaining("Copying file from ");
         }
         finally
         {

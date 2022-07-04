@@ -1,6 +1,6 @@
 public static class ProcessRunner
 {
-    public static string Execute(string command,string arguments)
+    public static List<string> Execute(string command, string arguments)
     {
         using var process = new Process
         {
@@ -18,10 +18,10 @@ public static class ProcessRunner
         process.Start();
 
         var errorBuilder = new StringBuilder();
-        var outputBuilder = new StringBuilder();
+        var output = new List<string>();
         process.OutputDataReceived += (_, args) =>
         {
-            outputBuilder.AppendLine(args.Data);
+            output.Add(args.Data);
         };
         process.BeginOutputReadLine();
         process.ErrorDataReceived += (_, args) =>
@@ -32,18 +32,18 @@ public static class ProcessRunner
         if (!process.DoubleWaitForExit())
         {
             var timeoutError = $@"Process timed out. Command line: {command} {arguments}.
-Output: {outputBuilder}
+Output: {string.Join(Environment.NewLine, output)}
 Error: {errorBuilder}";
             throw new ErrorException(timeoutError);
         }
 
         if (process.ExitCode == 0)
         {
-            return outputBuilder.ToString();
+            return output;
         }
 
         var error = $@"Could not execute process. Command line: {command} {arguments}.
-Output: {outputBuilder}
+Output: {string.Join(Environment.NewLine, output)}
 Error: {errorBuilder}";
         throw new ErrorException(error);
     }

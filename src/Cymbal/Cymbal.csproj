@@ -2,7 +2,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Description></Description>
     <DevelopmentDependency>true</DevelopmentDependency>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <GeneratePackageOnBuild Condition="$(Configuration) == 'Release'">true</GeneratePackageOnBuild>
@@ -10,10 +9,11 @@
     <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="build\Cymbal.MsBuild.targets">
+    <Content Include="build\Cymbal.targets">
       <Pack>true</Pack>
       <PackagePath>build</PackagePath>
     </Content>
+    <PackageReference Include="ProjectDefaults" Version="1.0.78" PrivateAssets="all" />
     <None Include="$(SolutionDir)icon.png" Pack="true" PackagePath="\" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />

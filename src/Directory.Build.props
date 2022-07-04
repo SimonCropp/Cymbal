@@ -1,20 +1,10 @@
 <Project>
   <PropertyGroup>
-    <Version>0.4.3</Version>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>0.1.0</Version>
     <SolutionDir>$(ProjectDir)..\</SolutionDir>
-    <LangVersion>10.0</LangVersion>
-    <GenerateDocumentationFile>false</GenerateDocumentationFile>
-    <Nullable>enable</Nullable>
-    <NoWarn>CS1591</NoWarn>
-    <Copyright>Copyright $([System.DateTime]::UtcNow.ToString(yyyy)). All rights reserved</Copyright>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <ContinuousIntegrationBuild Condition="$(CI) == true">true</ContinuousIntegrationBuild>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://github.com/SimonCropp/Cymbal</PackageProjectUrl>
+    <SignAssembly>false</SignAssembly>
     <ImplicitUsings>enable</ImplicitUsings>
-    <PackageOutputPath>$(SolutionDir)..\nugets</PackageOutputPath>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <LangVersion>10</LangVersion>
     <Configurations>Debug;Release;IncludeTask</Configurations>
   </PropertyGroup>
 </Project>

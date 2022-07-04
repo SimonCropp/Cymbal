@@ -9,10 +9,11 @@
     AssemblyFile="$(CymbalAssembly)" />
   <Target
     Name="CymbalTarget"
-    AfterTargets="AfterPublish" >
-    <Cymbal.CymbalTask TargetOutputs="@(TargetOutputs)" />
-
-    <!--<Message Text="@(CopyLocalPathsToAdd,'%0a')" Importance="high" />-->
+    AfterTargets="Publish" >
+    <Cymbal.CymbalTask
+            TargetOutputs="@(TargetOutputs)"
+            PublishDir="$(PublishDir)" />
+    <Message Text="@(TargetOutputs,'%0a')" Importance="high" />
   </Target>
 
   <Target Name="IncludeSymbolFiles"

@@ -20,6 +20,12 @@
   https://github.com/dotnet/symstore
 
   https://www.nuget.org/packages/dotnet-symbol
+  
+  dotnet tool install --global dotnet-symbol 
+  
+  dotnet-symbol
+  
+  dotnet dotnet-symbol
 
   https://github.com/dotnet/symstore/blob/main/src/Microsoft.SymbolStore/Microsoft.SymbolStore.csproj
 

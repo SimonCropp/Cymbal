@@ -13,8 +13,12 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          
          PublishDir: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/
          
-         Input assemblies: 
+         Skipped assemblies with existing pdbs: 
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll
+         Skipped assemblies with embedded symbols: 
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
+         Assemblies to process: 
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithNoSymbols.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll
@@ -25,7 +29,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll
          dotnet-symbol result:
          	Downloading from http://msdl.microsoft.com/download/symbols/
-         	ERROR: Not Found: AssemblyWithEmbeddedSymbols.pdb - 'http://msdl.microsoft.com/download/symbols/assemblywithembeddedsymbols.pdb/6845c2588eb44a8cb124f1fae921f541FFFFFFFF/assemblywithembeddedsymbols.pdb'
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb

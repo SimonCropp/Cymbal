@@ -8,8 +8,8 @@ public class Tests
     public async Task RunTask()
     {
         var solutionDir = AttributeReader.GetSolutionDirectory();
-        var sampleAppPath = Path.Combine(solutionDir,"SampleApp");
-        var includeTaskDir = Path.Combine(sampleAppPath,@"bin\IncludeTask");
+        var sampleAppPath = Path.Combine(solutionDir, "SampleApp");
+        var includeTaskDir = Path.Combine(sampleAppPath, @"bin\IncludeTask");
         if (Directory.Exists(includeTaskDir))
         {
             Directory.Delete(includeTaskDir, true);
@@ -63,7 +63,8 @@ public class Tests
         {
             await Cli.Wrap("dotnet")
                 .WithArguments("build-server shutdown")
-                .ExecuteAsync();;
+                .ExecuteAsync();
+            ;
         }
     }
 }

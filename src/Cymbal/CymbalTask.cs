@@ -40,37 +40,64 @@ PublishDir: {fullPublishPath}
 ";
         Log.LogMessageFromText(inputs, MessageImportance.High);
 
-        var files = GetFiles(fullPublishPath).ToList();
+        var (hasPdb, isEmbedded, toDownload) = GetFiles(fullPublishPath);
 
-        if (!files.Any())
+        if (hasPdb.Any())
+        {
+            Log.LogMessageFromText($"Skipped assemblies with existing pdbs: {ListToIndented(hasPdb)}", MessageImportance.Normal);
+        }
+
+        if (isEmbedded.Any())
+        {
+            Log.LogMessageFromText($"Skipped assemblies with embedded symbols: {ListToIndented(isEmbedded)}", MessageImportance.Normal);
+        }
+
+        if (!toDownload.Any())
         {
             Log.LogMessageFromText("No assemblies found to process", MessageImportance.Normal);
             return;
         }
 
-        var inputFilesString = $"{Environment.NewLine}\t{string.Join($"{Environment.NewLine}\t", files)}";
-        Log.LogMessageFromText($"Input assemblies: {inputFilesString}", MessageImportance.High);
+        Log.LogMessageFromText($"Assemblies to process: {ListToIndented(toDownload)}", MessageImportance.Normal);
 
-        var result = ProcessRunner.Execute("dotnet-symbol", string.Join(" ",files));
+        var result = ProcessRunner.Execute("dotnet-symbol", string.Join(" ", toDownload));
 
         var builder = new StringBuilder();
         foreach (var line in result)
         {
             builder.AppendLine($"\t{line}");
         }
+
         Log.LogMessageFromText($"dotnet-symbol result:{Environment.NewLine}{builder}", MessageImportance.High);
     }
 
-    static IEnumerable<string> GetFiles(string fullPublishPath)
+    static string ListToIndented(IEnumerable<string> toDownload) =>
+        $"{Environment.NewLine}\t{string.Join($"{Environment.NewLine}\t", toDownload)}";
+
+    static (List<string> hasPdb, List<string> isEmbedded, List<string> toDownload) GetFiles(string fullPublishPath)
     {
+        var toDownload = new List<string>();
+        var isEmbedded = new List<string>();
+        var hasPdb = new List<string>();
         foreach (var assemblyPath in Directory.EnumerateFiles(fullPublishPath, "*.dll"))
         {
             var symbolPath = Path.ChangeExtension(assemblyPath, ".pdb");
-            if (!File.Exists(symbolPath))
+            if (File.Exists(symbolPath))
             {
-                yield return assemblyPath;
+                hasPdb.Add(assemblyPath);
+                continue;
             }
+
+            if (SymbolChecker.HasEmbedded(assemblyPath))
+            {
+                isEmbedded.Add(assemblyPath);
+                continue;
+            }
+
+            toDownload.Add(assemblyPath);
         }
+
+        return (hasPdb, isEmbedded, toDownload);
     }
 
     public void Cancel()

@@ -10,7 +10,10 @@ public class Tests
         var solutionDir = AttributeReader.GetSolutionDirectory();
         var sampleAppPath = Path.Combine(solutionDir,"SampleApp");
         var includeTaskDir = Path.Combine(sampleAppPath,@"bin\IncludeTask");
-        Directory.Delete(includeTaskDir, true);
+        if (Directory.Exists(includeTaskDir))
+        {
+            Directory.Delete(includeTaskDir, true);
+        }
 
         await Cli.Wrap("dotnet")
             .WithArguments("build --force --configuration IncludeTask --no-incremental")

@@ -4,6 +4,7 @@ image:
 - Ubuntu
 build_script:
 - pwsh: |
+    dotnet tool install --global dotnet-symbol
     if ($isWindows) {
       Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
       ./dotnet-install.ps1 -JSonFile src/global.json -Architecture x64 -InstallDir 'C:\Program Files\dotnet'

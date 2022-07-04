@@ -15,7 +15,7 @@ dotnet tool install --global dotnet-symbol
 ```
 
 
-## Cymbal performs two tasks
+## Cymbal performs two operations
 
 
 ### Copies symbols from references

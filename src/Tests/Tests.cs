@@ -16,13 +16,12 @@ public class Tests
         }
 
         await Cli.Wrap("dotnet")
-            .WithArguments("build --force --configuration IncludeTask --no-incremental")
+            .WithArguments("build --configuration IncludeTask")
             .WithWorkingDirectory(solutionDir)
-            .WithValidation(CommandResultValidation.None)
             .ExecuteBufferedAsync();
 
         var publishResult = await Cli.Wrap("dotnet")
-            .WithArguments("publish --configuration IncludeTask --force --no-build --no-restore --verbosity normal")
+            .WithArguments("publish --configuration IncludeTask --no-build --no-restore --verbosity normal")
             .WithWorkingDirectory(sampleAppPath)
             .WithValidation(CommandResultValidation.None)
             .ExecuteBufferedAsync();
@@ -64,7 +63,6 @@ public class Tests
             await Cli.Wrap("dotnet")
                 .WithArguments("build-server shutdown")
                 .ExecuteAsync();
-            ;
         }
     }
 }

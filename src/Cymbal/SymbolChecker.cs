@@ -7,7 +7,7 @@ public static class SymbolChecker
         using var stream = OpenRead(path);
         using var reader = new PEReader(stream);
         var entries = reader.ReadDebugDirectory();
-        return ImmutableArrayExtensions.Any(entries, e => e.Type == DebugDirectoryEntryType.EmbeddedPortablePdb);
+        return entries.Any(e => e.Type == DebugDirectoryEntryType.EmbeddedPortablePdb);
     }
 
     static FileStream OpenRead(string path) =>

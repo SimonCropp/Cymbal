@@ -30,11 +30,12 @@ Works around [symbols not being copied from references](https://github.com/dotne
         Condition="@(ReferenceCopyLocalPaths) != ''">
   <ItemGroup>
     <ReferenceCopyLocalPaths Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb" />
-    <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="!Exists('%(FullPath)')" />
+    <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)"
+                             Condition="!Exists('%(FullPath)')" />
   </ItemGroup>
 </Target>
 ```
-<sup><a href='/src/Cymbal/build/Cymbal.targets#L18-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Cymbal/build/Cymbal.targets#L18-L28' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This is done at Build time.

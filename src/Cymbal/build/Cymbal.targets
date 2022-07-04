@@ -5,15 +5,16 @@
   </PropertyGroup>
 
   <UsingTask
-    TaskName="Cymbal.CymbalTask"
+    TaskName="CymbalTask"
     AssemblyFile="$(CymbalAssembly)" />
   <Target
     Name="CymbalTarget"
     AfterTargets="Publish" >
-    <Cymbal.CymbalTask
+    <CymbalTask
             TargetOutputs="@(TargetOutputs)"
             PublishDir="$(PublishDir)" />
-    <Message Text="@(TargetOutputs,'%0a')" Importance="high" />
+    <Message Text="@(TargetOutputs,'%0a')"
+             Importance="high" />
   </Target>
 <!-- begin-snippet: IncludeSymbolFromReferences-->
   <Target Name="IncludeSymbolFromReferences"
@@ -21,7 +22,8 @@
           Condition="@(ReferenceCopyLocalPaths) != ''">
     <ItemGroup>
       <ReferenceCopyLocalPaths Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb" />
-      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="!Exists('%(FullPath)')" />
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)"
+                               Condition="!Exists('%(FullPath)')" />
     </ItemGroup>
   </Target>
 <!-- end-snippet -->

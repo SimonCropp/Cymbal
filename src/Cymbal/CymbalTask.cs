@@ -1,8 +1,6 @@
 using Microsoft.Build.Framework;
 using Task = Microsoft.Build.Utilities.Task;
 
-namespace Cymbal;
-
 public class CymbalTask :
     Task,
     ICancelableTask

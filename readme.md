@@ -57,3 +57,7 @@ https://nuget.org/packages/Cymbal/
 Install-Package Cymbal
 ```
 
+
+## Icon
+
+[Cymbals](https://thenounproject.com/term/cymbals/4920970/) designed by [Eucalyp](https://thenounproject.com/eucalyp) from [The Noun Project](https://thenounproject.com).

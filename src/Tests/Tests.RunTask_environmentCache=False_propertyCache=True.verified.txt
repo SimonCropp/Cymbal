@@ -63,7 +63,6 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
          dotnet-symbol result:
          	Downloading from https://symbols.nuget.org/download/symbols/
-         	Downloading from https://msdl.microsoft.com/download/symbols/
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb

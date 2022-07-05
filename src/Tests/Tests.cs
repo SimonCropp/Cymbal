@@ -4,8 +4,9 @@ using CliWrap.Buffered;
 [UsesVerify]
 public class Tests
 {
-    [Fact]
-    public async Task RunTask()
+    [Theory]
+    [MemberData(nameof(GetData))]
+    public async Task RunTask(bool environmentCache, bool propertyCache)
     {
         var solutionDir = AttributeReader.GetSolutionDirectory();
         var sampleAppPath = Path.Combine(solutionDir, "SampleApp");
@@ -15,20 +16,25 @@ public class Tests
             Directory.Delete(includeTaskDir, true);
         }
 
-        await Cli.Wrap("dotnet")
-            .WithArguments("build --configuration IncludeTask")
-            .WithWorkingDirectory(solutionDir)
-            .WithValidation(CommandResultValidation.None)
-            .ExecuteBufferedAsync();
+        await RunDotnet("build --configuration IncludeTask");
+
+        var environmentVariables = new Dictionary<string, string?>();
+        var cacheDirectory = Path.Combine(solutionDir, "Cache");
+        if (environmentCache)
+        {
+            environmentVariables.Add("CymbalCacheDirectory", cacheDirectory);
+        }
+
+        var arguments = "publish --configuration IncludeTask --no-build --no-restore --verbosity normal";
+        if (propertyCache)
+        {
+            arguments += $" -p:CymbalCacheDirectory={cacheDirectory}";
+        }
 
         var publishResult = await Cli.Wrap("dotnet")
-            .WithArguments("publish --configuration IncludeTask --no-build --no-restore --verbosity normal")
+            .WithArguments(arguments)
             .WithWorkingDirectory(sampleAppPath)
-            .WithValidation(CommandResultValidation.None).WithEnvironmentVariables(
-                new Dictionary<string, string?>
-            {
-                {"Cymbal_CacheDirectory",Path.Combine(solutionDir, "Cache")}
-            })
+            .WithValidation(CommandResultValidation.None).WithEnvironmentVariables(environmentVariables)
             .ExecuteBufferedAsync();
 
         try
@@ -44,10 +50,7 @@ public class Tests
             }
 
             var appPath = Path.Combine(solutionDir, "SampleApp/bin/IncludeTask/SampleApp.dll");
-            var runResult = await Cli.Wrap("dotnet")
-                .WithArguments(appPath)
-                .WithValidation(CommandResultValidation.None)
-                .ExecuteBufferedAsync();
+            var runResult = await RunDotnet(appPath);
 
             await Verify(
                     new
@@ -56,19 +59,42 @@ public class Tests
                         consoleOutput = runResult.StandardOutput,
                         consoleError = runResult.StandardError
                     })
+                .UseParameters(environmentCache, propertyCache)
                 .ScrubLinesWithReplace(line => line.Replace('\\', '/'))
-                .ScrubLinesContaining("Build started")
-                .ScrubLinesContaining("Time Elapsed")
-                .ScrubLinesContaining("Finished Cymbal")
-                .ScrubLinesContaining("Creating directory")
-                .ScrubLinesContaining("Build Engine version")
-                .ScrubLinesContaining("Copying file from ");
+                .ScrubLinesContaining(
+                    "Build started",
+                    "Time Elapsed",
+                    "Finished Cymbal",
+                    "Creating directory",
+                    "Build Engine version",
+                    "Copying file from ");
         }
         finally
         {
-            await Cli.Wrap("dotnet")
-                .WithArguments("build-server shutdown")
-                .ExecuteAsync();
+            await RunDotnet("build-server shutdown");
+        }
+    }
+
+    static Task<BufferedCommandResult> RunDotnet(string arguments)
+    {
+        var solutionDir = AttributeReader.GetSolutionDirectory();
+        return Cli.Wrap("dotnet")
+            .WithArguments(arguments)
+            .WithWorkingDirectory(solutionDir)
+            .WithValidation(CommandResultValidation.None)
+            .ExecuteBufferedAsync();
+    }
+
+    public static IEnumerable<object?[]> GetData()
+    {
+        foreach (var environmentCache in new[] {true, false})
+        foreach (var propertyCache in new[] {true, false})
+        {
+            yield return new object?[]
+            {
+                environmentCache,
+                propertyCache
+            };
         }
     }
 }

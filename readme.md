@@ -28,7 +28,7 @@ Works around [symbols not being copied from references](https://github.com/dotne
   </ItemGroup>
 </Target>
 ```
-<sup><a href='/src/Cymbal/build/Cymbal.targets#L17-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Cymbal/build/Cymbal.targets#L18-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This is done at Build time.
@@ -95,6 +95,19 @@ Or to point to a nested directory:
 ```
 dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 ```
+
+
+## Cache Directory
+
+The cache directory can be controlled via either:
+
+ * An environment variable `CymbalCacheDirectory`. Must contain a full path. Or:
+ * An MsBuild property `CymbalCacheDirectory`. This can be passed into a `dotnet publish` using `-p:CymbalCacheDirectory=FullOrRelativePath`. `Path.GetFullPath()` will be used on the value.
+
+The resolved directly will be created if it doesn't exist.
+
+The MsBuild property take priority over the environment variable.
+
 
 ## Icon
 

@@ -6,7 +6,9 @@ public class CymbalTask :
     ICancelableTask
 {
     [Required]
-    public string PublishDir { get; set; } = null!;
+    public string PublishDirectory { get; set; } = null!;
+
+    public string? CacheDirectory { get; set; }
 
     public override bool Execute()
     {
@@ -29,16 +31,28 @@ public class CymbalTask :
 
     void InnerExecute()
     {
-        var envCacheDirectory = Environment.GetEnvironmentVariable("Cymbal_CacheDirectory");
-        string? cacheDirectory = null;
-        if (envCacheDirectory is not null)
+        string? cacheDirectory;
+        var environmentCacheDirectory = Environment.GetEnvironmentVariable("CymbalCacheDirectory");
+        if (CacheDirectory == null)
         {
-            cacheDirectory = envCacheDirectory;
+            cacheDirectory = environmentCacheDirectory;
         }
-        var fullPublishPath = Path.GetFullPath(PublishDir);
+        else
+        {
+            cacheDirectory = Path.GetFullPath(CacheDirectory);
+        }
+
+        if (cacheDirectory != null)
+        {
+            Directory.CreateDirectory(cacheDirectory);
+        }
+
+        var fullPublishPath = Path.GetFullPath(PublishDirectory);
         var inputs = $@"
 PublishDir: {fullPublishPath}
-CacheDirectory: {cacheDirectory} (use Cymbal_CacheDirectory environment variable to control)
+CymbalCacheDirectory environment variable: {environmentCacheDirectory}
+CymbalCacheDirectory MsBuild property: {CacheDirectory}
+Resolved CacheDirectory: {cacheDirectory}
 ";
         Log.LogMessageFromText(inputs, MessageImportance.High);
 

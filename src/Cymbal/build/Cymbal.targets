@@ -10,7 +10,8 @@
   <Target
     Name="CymbalTarget"
     AfterTargets="Publish" >
-    <CymbalTask PublishDir="$(PublishDir)" />
+    <CymbalTask PublishDirectory="$(PublishDir)"
+                CacheDirectory="$(CymbalCacheDirectory)"/>
     <Message Text="@(TargetOutputs,'%0a')"
              Importance="high" />
   </Target>

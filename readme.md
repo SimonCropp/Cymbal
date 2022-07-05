@@ -9,7 +9,7 @@ Cymbal is an MSBuild task that enables bundling dotnet symbols with a deployed a
 ## Cymbal performs two operations
 
 
-### Copies symbols from references
+### 1. Copies symbols from references
 
 Works around [symbols not being copied from references](https://github.com/dotnet/sdk/issues/1458). This is done via manipulating `ReferenceCopyLocalPaths`:
 
@@ -34,7 +34,7 @@ Works around [symbols not being copied from references](https://github.com/dotne
 This is done at Build time.
 
 
-### dotnet-symbol on Publish
+### 2. Run dotnet-symbol on Publish
 
 On a [dotnet-publish](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish) any missing symbols are attempted to be downloaded via the [dotnet-symbol tool](https://www.nuget.org/packages/dotnet-symbol) ([Source](https://github.com/dotnet/symstore)).
 

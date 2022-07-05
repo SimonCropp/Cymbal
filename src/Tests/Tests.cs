@@ -18,12 +18,17 @@ public class Tests
         await Cli.Wrap("dotnet")
             .WithArguments("build --configuration IncludeTask")
             .WithWorkingDirectory(solutionDir)
+            .WithValidation(CommandResultValidation.None)
             .ExecuteBufferedAsync();
 
         var publishResult = await Cli.Wrap("dotnet")
             .WithArguments("publish --configuration IncludeTask --no-build --no-restore --verbosity normal")
             .WithWorkingDirectory(sampleAppPath)
-            .WithValidation(CommandResultValidation.None)
+            .WithValidation(CommandResultValidation.None).WithEnvironmentVariables(
+                new Dictionary<string, string?>
+            {
+                {"Cymbal_CacheDirectory",Path.Combine(solutionDir, "Cache")}
+            })
             .ExecuteBufferedAsync();
 
         try
@@ -55,6 +60,7 @@ public class Tests
                 .ScrubLinesContaining("Build started")
                 .ScrubLinesContaining("Time Elapsed")
                 .ScrubLinesContaining("Finished Cymbal")
+                .ScrubLinesContaining("Creating directory")
                 .ScrubLinesContaining("Build Engine version")
                 .ScrubLinesContaining("Copying file from ");
         }

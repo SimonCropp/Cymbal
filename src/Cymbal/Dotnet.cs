@@ -21,12 +21,18 @@ public static class ProcessRunner
         var output = new List<string>();
         process.OutputDataReceived += (_, args) =>
         {
-            output.Add(args.Data);
+            if (args.Data != null)
+            {
+                output.Add(args.Data);
+            }
         };
         process.BeginOutputReadLine();
         process.ErrorDataReceived += (_, args) =>
         {
-            errorBuilder.AppendLine(args.Data);
+            if (args.Data != null)
+            {
+                errorBuilder.AppendLine(args.Data);
+            }
         };
         process.BeginErrorReadLine();
         if (!process.DoubleWaitForExit())

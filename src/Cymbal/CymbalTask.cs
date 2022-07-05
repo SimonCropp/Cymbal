@@ -8,9 +8,6 @@ public class CymbalTask :
     [Required]
     public string PublishDir { get; set; } = null!;
 
-    [Required]
-    public ITaskItem[] TargetOutputs { get; set; } = null!;
-
     public override bool Execute()
     {
         var stopwatch = Stopwatch.StartNew();
@@ -32,9 +29,16 @@ public class CymbalTask :
 
     void InnerExecute()
     {
+        var envCacheDirectory = Environment.GetEnvironmentVariable("Cymbal_CacheDirectory");
+        string? cacheDirectory = null;
+        if (envCacheDirectory is not null)
+        {
+            cacheDirectory = envCacheDirectory;
+        }
         var fullPublishPath = Path.GetFullPath(PublishDir);
         var inputs = $@"
 PublishDir: {fullPublishPath}
+CacheDirectory: {cacheDirectory} (use Cymbal_CacheDirectory environment variable to control)
 ";
         Log.LogMessageFromText(inputs, MessageImportance.High);
 
@@ -58,12 +62,22 @@ PublishDir: {fullPublishPath}
 
         Log.LogMessageFromText($"Assemblies to process: {ListToIndented(toDownload)}", MessageImportance.Normal);
 
-        var result = ProcessRunner.Execute("dotnet", "tool run dotnet-symbol " + string.Join(" ", toDownload));
+        var arguments = "tool run dotnet-symbol ";
+
+        if (cacheDirectory != null)
+        {
+            arguments += $"--cache-directory {cacheDirectory} ";
+        }
+
+        arguments += string.Join(" ", toDownload);
+
+        var result = ProcessRunner.Execute("dotnet", arguments);
 
         var builder = new StringBuilder();
         foreach (var line in result)
         {
-            builder.AppendLine($"\t{line}");
+            var scrubbedLine = line.Replace("ERROR: Not Found: ", "Not Found: ");
+            builder.AppendLine($"\t{scrubbedLine}");
         }
 
         Log.LogMessageFromText($"dotnet-symbol result:{Environment.NewLine}{builder}", MessageImportance.High);
@@ -77,7 +91,7 @@ PublishDir: {fullPublishPath}
         var toDownload = new List<string>();
         var isEmbedded = new List<string>();
         var hasPdb = new List<string>();
-        foreach (var assemblyPath in Directory.EnumerateFiles(fullPublishPath, "*.dll"))
+        foreach (var assemblyPath in Directory.EnumerateFiles(fullPublishPath, "*.dll", SearchOption.AllDirectories))
         {
             var symbolPath = Path.ChangeExtension(assemblyPath, ".pdb");
             if (File.Exists(symbolPath))

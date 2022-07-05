@@ -10,9 +10,7 @@
   <Target
     Name="CymbalTarget"
     AfterTargets="Publish" >
-    <CymbalTask
-            TargetOutputs="@(TargetOutputs)"
-            PublishDir="$(PublishDir)" />
+    <CymbalTask PublishDir="$(PublishDir)" />
     <Message Text="@(TargetOutputs,'%0a')"
              Importance="high" />
   </Target>
@@ -21,7 +19,9 @@
           AfterTargets="ResolveAssemblyReferences"
           Condition="@(ReferenceCopyLocalPaths) != ''">
     <ItemGroup>
-      <ReferenceCopyLocalPaths Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb" />
+      <ReferenceCopyLocalPaths
+              Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb"
+              DestinationSubDirectory="%(ReferenceCopyLocalPaths.DestinationSubDirectory)" />
       <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)"
                                Condition="!Exists('%(FullPath)')" />
     </ItemGroup>

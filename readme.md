@@ -96,6 +96,11 @@ Or to point to a nested directory:
 dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 ```
 
+### Scanned symbol servers
+
+ *  https://symbols.nuget.org/download/symbols 
+ * https://msdl.microsoft.com/download/symbols/ 
+
 
 ## Cache Directory
 

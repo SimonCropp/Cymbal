@@ -76,7 +76,7 @@ Resolved CacheDirectory: {cacheDirectory}
 
         Log.LogMessageFromText($"Assemblies to process: {ListToIndented(toDownload)}", MessageImportance.Normal);
 
-        var arguments = "tool run dotnet-symbol --server-path https://symbols.nuget.org/download/symbols ";
+        var arguments = "tool run dotnet-symbol --server-path https://symbols.nuget.org/download/symbols --server-path https://msdl.microsoft.com/download/symbols/ ";
 
         if (cacheDirectory != null)
         {
@@ -90,6 +90,7 @@ Resolved CacheDirectory: {cacheDirectory}
         var builder = new StringBuilder();
         foreach (var line in result)
         {
+            
             var scrubbedLine = line.Replace("ERROR: Not Found: ", "Not Found: ");
             builder.AppendLine($"\t{scrubbedLine}");
         }

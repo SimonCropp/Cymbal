@@ -5,11 +5,23 @@ using DiffEngine;
 [UsesVerify]
 public class Tests : IAsyncDisposable
 {
+    static string solutionDir;
+    static string cacheDirectory;
+
+    static Tests()
+    {
+        solutionDir = AttributeReader.GetSolutionDirectory();
+        cacheDirectory = Path.Combine(solutionDir, "Cache");
+        if (Directory.Exists(cacheDirectory))
+        {
+            Directory.Delete(cacheDirectory, true);
+        }
+    }
+
     [Theory]
     [MemberData(nameof(GetData))]
     public async Task RunTask(bool environmentCache, bool propertyCache)
     {
-        var solutionDir = AttributeReader.GetSolutionDirectory();
         var sampleAppPath = Path.Combine(solutionDir, "SampleApp");
         var includeTaskDir = Path.Combine(sampleAppPath, @"bin\IncludeTask");
         if (Directory.Exists(includeTaskDir))
@@ -20,7 +32,6 @@ public class Tests : IAsyncDisposable
         await RunDotnet("build --configuration IncludeTask");
 
         var environmentVariables = new Dictionary<string, string?>();
-        var cacheDirectory = Path.Combine(solutionDir, "Cache");
         if (environmentCache)
         {
             environmentVariables.Add("CymbalCacheDirectory", cacheDirectory);

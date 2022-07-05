@@ -9,6 +9,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <Description>Enable line numbers for exceptions in a deployed app via downloading and bundling symbols during a dotnet publish.</Description>
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".\bin\$(Configuration)\Cymbal.dll">

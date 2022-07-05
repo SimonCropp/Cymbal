@@ -11,6 +11,10 @@
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".\bin\$(Configuration)\Cymbal.dll">
+      <Pack>true</Pack>
+      <PackagePath>task</PackagePath>
+    </Content>
     <Content Include="build\Cymbal.targets">
       <Pack>true</Pack>
       <PackagePath>build</PackagePath>

@@ -37,6 +37,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.dll
@@ -61,7 +62,8 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
          dotnet-symbol result:
-         	Downloading from http://msdl.microsoft.com/download/symbols/
+         	Downloading from https://symbols.nuget.org/download/symbols/
+         	Downloading from https://msdl.microsoft.com/download/symbols/
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
@@ -72,17 +74,18 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
-         	Not Found: Microsoft.Identity.Client.pdb - 'http://msdl.microsoft.com/download/symbols/microsoft.identity.client.pdb/c991564e4eb5401bbc548d6494a1fb19FFFFFFFF/microsoft.identity.client.pdb'
-         	Not Found: Microsoft.Identity.Client.Extensions.Msal.pdb - 'http://msdl.microsoft.com/download/symbols/microsoft.identity.client.extensions.msal.pdb/fcad7d68d79e4036ae7c5edd434ac306FFFFFFFF/microsoft.identity.client.extensions.msal.pdb'
-         	Not Found: Microsoft.IdentityModel.JsonWebTokens.pdb - 'http://msdl.microsoft.com/download/symbols/microsoft.identitymodel.jsonwebtokens.pdb/2ff49622514e41719c4e141387930df8FFFFFFFF/microsoft.identitymodel.jsonwebtokens.pdb'
-         	Not Found: Microsoft.IdentityModel.Logging.pdb - 'http://msdl.microsoft.com/download/symbols/microsoft.identitymodel.logging.pdb/8a0694b276f14191b0c05c54683ea04eFFFFFFFF/microsoft.identitymodel.logging.pdb'
-         	Not Found: Microsoft.IdentityModel.Protocols.pdb - 'http://msdl.microsoft.com/download/symbols/microsoft.identitymodel.protocols.pdb/c400d3d8a0d74e839776adcc79868577FFFFFFFF/microsoft.identitymodel.protocols.pdb'
-         	Not Found: Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb - 'http://msdl.microsoft.com/download/symbols/microsoft.identitymodel.protocols.openidconnect.pdb/2c8cf0ab8f28402894147f74a6cdd974FFFFFFFF/microsoft.identitymodel.protocols.openidconnect.pdb'
-         	Not Found: Microsoft.IdentityModel.Tokens.pdb - 'http://msdl.microsoft.com/download/symbols/microsoft.identitymodel.tokens.pdb/b83b679956344ce59042aeda3326b1abFFFFFFFF/microsoft.identitymodel.tokens.pdb'
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Win32.SystemEvents.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.pdb
-         	Not Found: System.IdentityModel.Tokens.Jwt.pdb - 'http://msdl.microsoft.com/download/symbols/system.identitymodel.tokens.jwt.pdb/27e4c842c7824e5295e80291a1849b7dFFFFFFFF/system.identitymodel.tokens.jwt.pdb'
+         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Runtime.Caching.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
          	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Permissions.pdb

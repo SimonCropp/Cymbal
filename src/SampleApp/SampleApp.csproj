@@ -7,6 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components" Version="6.0.6" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.45.0" />
     <ProjectReference Include="..\AssemblyWithEmbeddedSymbols\AssemblyWithEmbeddedSymbols.csproj" />
     <ProjectReference Include="..\AssemblyWithNoSymbols\AssemblyWithNoSymbols.csproj" />
     <ProjectReference Include="..\AssemblyWithPdb\AssemblyWithPdb.csproj" />

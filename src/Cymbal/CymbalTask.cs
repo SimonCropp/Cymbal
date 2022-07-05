@@ -76,7 +76,7 @@ Resolved CacheDirectory: {cacheDirectory}
 
         Log.LogMessageFromText($"Assemblies to process:{ListToIndented(toDownload)}", MessageImportance.Normal);
 
-        var (missingSymbols, foundSymbols) = RunDotnetSymbol(cacheDirectory, toDownload);
+        var (missingSymbols, foundSymbols) = SymbolDownloader.Run(cacheDirectory, toDownload);
 
         if (foundSymbols.Any())
         {
@@ -87,47 +87,6 @@ Resolved CacheDirectory: {cacheDirectory}
         {
             Log.LogMessageFromText($"Missing Symbols:{ListToIndented(missingSymbols)}", MessageImportance.High);
         }
-    }
-
-    static (List<string> missingSymbols, List<string> foundSymbols) RunDotnetSymbol(string? cacheDirectory, List<string> toDownload)
-    {
-        var arguments = "tool run dotnet-symbol --server-path https://symbols.nuget.org/download/symbols --server-path https://msdl.microsoft.com/download/symbols/ ";
-
-        if (cacheDirectory != null)
-        {
-            arguments += $"--cache-directory {cacheDirectory} ";
-        }
-
-        arguments += string.Join(" ", toDownload);
-
-        var result = ProcessRunner.Execute("dotnet", arguments);
-
-        var missingSymbols = new List<string>();
-        var foundSymbols = new List<string>();
-        foreach (var line in result)
-        {
-            if (line.StartsWith("ERROR: Not Found: "))
-            {
-                var scrubbedLine = line.Replace("ERROR: Not Found: ", "");
-                var indexOfDash = scrubbedLine.IndexOf(" - ");
-                missingSymbols.Add(scrubbedLine.Substring(0,indexOfDash));
-                continue;
-            }
-            if (line.StartsWith("Writing: "))
-            {
-                var scrubbedLine = line.Replace("Writing: ", "");
-                foundSymbols.Add(scrubbedLine);
-                continue;
-            }
-        }
-
-        foreach (var found in foundSymbols)
-        {
-            var foundFileName = Path.GetFileName(found);
-            missingSymbols.Remove(foundFileName);
-        }
-
-        return (missingSymbols,foundSymbols);
     }
 
     static string ListToIndented(IEnumerable<string> toDownload) =>

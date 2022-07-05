@@ -19,6 +19,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
          Skipped assemblies with embedded symbols:
@@ -31,10 +32,8 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.dll
@@ -44,6 +43,14 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Win32.SystemEvents.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.AspNetCore.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Formatting.Compact.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Debug.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.dll
@@ -68,10 +75,8 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
@@ -81,6 +86,8 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Win32.SystemEvents.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
@@ -98,6 +105,13 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.pdb
+         Missing Symbols:
+         	Serilog.AspNetCore.pdb
+         	Serilog.Extensions.Hosting.pdb
+         	Serilog.Extensions.Logging.pdb
+         	Serilog.Formatting.Compact.pdb
+         	Serilog.Sinks.Console.pdb
+         	Serilog.Sinks.Debug.pdb
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).
 
 Build succeeded.

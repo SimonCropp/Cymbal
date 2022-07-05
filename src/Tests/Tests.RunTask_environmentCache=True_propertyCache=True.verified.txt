@@ -15,15 +15,15 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          CymbalCacheDirectory MsBuild property: {SolutionDirectory}Cache
          Resolved CacheDirectory: {SolutionDirectory}Cache
          
-         Skipped assemblies with existing pdbs: 
+         Skipped assemblies with existing pdbs:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-         Skipped assemblies with embedded symbols: 
+         Skipped assemblies with embedded symbols:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
-         Assemblies to process: 
+         Assemblies to process:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithNoSymbols.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.dll
@@ -61,45 +61,43 @@ Copyright (C) Microsoft Corporation. All rights reserved.
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
-         dotnet-symbol result:
-         	Downloading from https://symbols.nuget.org/download/symbols/
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Win32.SystemEvents.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Runtime.Caching.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Permissions.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Windows.Extensions.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.pdb
-         	Writing: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.pdb
-         
+         Symbols written:
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Win32.SystemEvents.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Runtime.Caching.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Permissions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Windows.Extensions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.pdb
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).
 
 Build succeeded.

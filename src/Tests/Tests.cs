@@ -80,15 +80,12 @@ public class Tests : IAsyncDisposable
                 "Copying file from ");
     }
 
-    static Task<BufferedCommandResult> RunDotnet(string arguments)
-    {
-        var solutionDir = AttributeReader.GetSolutionDirectory();
-        return Cli.Wrap("dotnet")
+    static Task<BufferedCommandResult> RunDotnet(string arguments) =>
+        Cli.Wrap("dotnet")
             .WithArguments(arguments)
             .WithWorkingDirectory(solutionDir)
             .WithValidation(CommandResultValidation.None)
             .ExecuteBufferedAsync();
-    }
 
     static bool[] bools =
     {

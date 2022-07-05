@@ -60,12 +60,12 @@ Resolved CacheDirectory: {cacheDirectory}
 
         if (hasPdb.Any())
         {
-            Log.LogMessageFromText($"Skipped assemblies with existing pdbs: {ListToIndented(hasPdb)}", MessageImportance.Normal);
+            Log.LogMessageFromText($"Skipped assemblies with existing pdbs:{ListToIndented(hasPdb)}", MessageImportance.Normal);
         }
 
         if (isEmbedded.Any())
         {
-            Log.LogMessageFromText($"Skipped assemblies with embedded symbols: {ListToIndented(isEmbedded)}", MessageImportance.Normal);
+            Log.LogMessageFromText($"Skipped assemblies with embedded symbols:{ListToIndented(isEmbedded)}", MessageImportance.Normal);
         }
 
         if (!toDownload.Any())
@@ -74,8 +74,23 @@ Resolved CacheDirectory: {cacheDirectory}
             return;
         }
 
-        Log.LogMessageFromText($"Assemblies to process: {ListToIndented(toDownload)}", MessageImportance.Normal);
+        Log.LogMessageFromText($"Assemblies to process:{ListToIndented(toDownload)}", MessageImportance.Normal);
 
+        var (missingSymbols, foundSymbols) = RunDotnetSymbol(cacheDirectory, toDownload);
+
+        if (foundSymbols.Any())
+        {
+            Log.LogMessageFromText($"Symbols written:{ListToIndented(foundSymbols)}", MessageImportance.High);
+        }
+
+        if (missingSymbols.Any())
+        {
+            Log.LogMessageFromText($"Missing Symbols:{ListToIndented(missingSymbols)}", MessageImportance.High);
+        }
+    }
+
+    static (List<string> missingSymbols, List<string> foundSymbols) RunDotnetSymbol(string? cacheDirectory, List<string> toDownload)
+    {
         var arguments = "tool run dotnet-symbol --server-path https://symbols.nuget.org/download/symbols --server-path https://msdl.microsoft.com/download/symbols/ ";
 
         if (cacheDirectory != null)
@@ -87,15 +102,32 @@ Resolved CacheDirectory: {cacheDirectory}
 
         var result = ProcessRunner.Execute("dotnet", arguments);
 
-        var builder = new StringBuilder();
+        var missingSymbols = new List<string>();
+        var foundSymbols = new List<string>();
         foreach (var line in result)
         {
-            
-            var scrubbedLine = line.Replace("ERROR: Not Found: ", "Not Found: ");
-            builder.AppendLine($"\t{scrubbedLine}");
+            if (line.StartsWith("ERROR: Not Found: "))
+            {
+                var scrubbedLine = line.Replace("ERROR: Not Found: ", "");
+                var indexOfDash = scrubbedLine.IndexOf(" - ");
+                missingSymbols.Add(scrubbedLine.Substring(0,indexOfDash));
+                continue;
+            }
+            if (line.StartsWith("Writing: "))
+            {
+                var scrubbedLine = line.Replace("Writing: ", "");
+                foundSymbols.Add(scrubbedLine);
+                continue;
+            }
         }
 
-        Log.LogMessageFromText($"dotnet-symbol result:{Environment.NewLine}{builder}", MessageImportance.High);
+        foreach (var found in foundSymbols)
+        {
+            var foundFileName = Path.GetFileName(found);
+            missingSymbols.Remove(foundFileName);
+        }
+
+        return (missingSymbols,foundSymbols);
     }
 
     static string ListToIndented(IEnumerable<string> toDownload) =>

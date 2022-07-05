@@ -38,9 +38,8 @@
             }
         }
 
-        foreach (var found in foundSymbols)
+        foreach (var foundFileName in foundSymbols.Select(Path.GetFileName))
         {
-            var foundFileName = Path.GetFileName(found);
             missingSymbols.Remove(foundFileName);
         }
 

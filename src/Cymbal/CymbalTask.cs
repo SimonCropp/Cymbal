@@ -20,7 +20,7 @@ public class CymbalTask :
         }
         catch (ErrorException exception)
         {
-            Log.LogError($"Cymbal: {exception}");
+            Log.LogError($"Cymbal: {exception.Message}");
             return false;
         }
         finally

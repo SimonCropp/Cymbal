@@ -48,9 +48,16 @@ Error: {errorBuilder}";
             return output;
         }
 
+
+        var errors = errorBuilder.ToString();
+        if (errors.Contains("Cannot find a tool in the manifest file that has a command named"))
+        {
+            throw new ErrorException("The dotnet tool `dotnet-symbol` was not found.");
+        }
+
         var error = $@"Could not execute process. Command line: {command} {arguments}.
 Output: {string.Join(Environment.NewLine, output)}
-Error: {errorBuilder}";
+Error: {errors}";
         throw new ErrorException(error);
     }
 }

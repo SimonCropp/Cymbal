@@ -98,9 +98,6 @@ public class Tests : IAsyncDisposable
         }
     }
 
-    public Task InitializeAsync() =>
-        Task.CompletedTask;
-
     public async ValueTask DisposeAsync()
     {
         if (!BuildServerDetector.Detected)

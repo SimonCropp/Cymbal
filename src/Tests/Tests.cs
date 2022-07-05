@@ -1,8 +1,9 @@
 ﻿using CliWrap;
 using CliWrap.Buffered;
+using DiffEngine;
 
 [UsesVerify]
-public class Tests
+public class Tests : IAsyncDisposable
 {
     [Theory]
     [MemberData(nameof(GetData))]
@@ -37,42 +38,35 @@ public class Tests
             .WithValidation(CommandResultValidation.None).WithEnvironmentVariables(environmentVariables)
             .ExecuteBufferedAsync();
 
-        try
+        if (publishResult.StandardError.Length > 0)
         {
-            if (publishResult.StandardError.Length > 0)
-            {
-                throw new(publishResult.StandardError);
-            }
-
-            if (publishResult.StandardOutput.Contains("error"))
-            {
-                throw new(publishResult.StandardOutput.Replace(solutionDir, ""));
-            }
-
-            var appPath = Path.Combine(solutionDir, "SampleApp/bin/IncludeTask/SampleApp.dll");
-            var runResult = await RunDotnet(appPath);
-
-            await Verify(
-                    new
-                    {
-                        buildOutput = publishResult.StandardOutput,
-                        consoleOutput = runResult.StandardOutput,
-                        consoleError = runResult.StandardError
-                    })
-                .UseParameters(environmentCache, propertyCache)
-                .ScrubLinesWithReplace(line => line.Replace('\\', '/'))
-                .ScrubLinesContaining(
-                    "Build started",
-                    "Time Elapsed",
-                    "Finished Cymbal",
-                    "Creating directory",
-                    "Build Engine version",
-                    "Copying file from ");
+            throw new(publishResult.StandardError);
         }
-        finally
+
+        if (publishResult.StandardOutput.Contains("error"))
         {
-            await RunDotnet("build-server shutdown");
+            throw new(publishResult.StandardOutput.Replace(solutionDir, ""));
         }
+
+        var appPath = Path.Combine(solutionDir, "SampleApp/bin/IncludeTask/SampleApp.dll");
+        var runResult = await RunDotnet(appPath);
+
+        await Verify(
+                new
+                {
+                    buildOutput = publishResult.StandardOutput,
+                    consoleOutput = runResult.StandardOutput,
+                    consoleError = runResult.StandardError
+                })
+            .UseParameters(environmentCache, propertyCache)
+            .ScrubLinesWithReplace(line => line.Replace('\\', '/'))
+            .ScrubLinesContaining(
+                "Build started",
+                "Time Elapsed",
+                "Finished Cymbal",
+                "Creating directory",
+                "Build Engine version",
+                "Copying file from ");
     }
 
     static Task<BufferedCommandResult> RunDotnet(string arguments)
@@ -85,16 +79,33 @@ public class Tests
             .ExecuteBufferedAsync();
     }
 
+    static bool[] bools =
+    {
+        true,
+        false
+    };
+
     public static IEnumerable<object?[]> GetData()
     {
-        foreach (var environmentCache in new[] {true, false})
-        foreach (var propertyCache in new[] {true, false})
+        foreach (var environmentCache in bools)
+        foreach (var propertyCache in bools)
         {
             yield return new object?[]
             {
                 environmentCache,
                 propertyCache
             };
+        }
+    }
+
+    public Task InitializeAsync() =>
+        Task.CompletedTask;
+
+    public async ValueTask DisposeAsync()
+    {
+        if (!BuildServerDetector.Detected)
+        {
+            await RunDotnet("build-server shutdown");
         }
     }
 }

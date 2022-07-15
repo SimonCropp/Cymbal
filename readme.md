@@ -3,7 +3,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/gd7jvcs0nv8pawc8/branch/main?svg=true)](https://ci.appveyor.com/project/SimonCropp/cymbal)
 [![NuGet Status](https://img.shields.io/nuget/v/Cymbal.svg)](https://www.nuget.org/packages/Cymbal/)
 
-Cymbal is an MSBuild task that enables bundling dotnet symbols with a deployed app. The goal being to enable line numbers for exceptions in a production system.
+Cymbal is an MSBuild task that enables bundling dotnet symbols for references with a deployed app. The goal being to enable line numbers for exceptions in a production system.
 
 
 ## Cymbal performs two operations

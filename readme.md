@@ -107,11 +107,11 @@ dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 The cache directory can be controlled via either:
 
  * An environment variable `CymbalCacheDirectory`. Must contain a full path. Or:
- * An MsBuild property `CymbalCacheDirectory`. This can be passed into a `dotnet publish` using `-p:CymbalCacheDirectory=FullOrRelativePath`. `Path.GetFullPath()` will be used on the value.
+ * An MSBuild property `CymbalCacheDirectory`. This can be passed into a `dotnet publish` using `-p:CymbalCacheDirectory=FullOrRelativePath`. `Path.GetFullPath()` will be used on the value.
 
-The resolved directly will be created if it doesn't exist.
+The resolved directory will be created if it doesn't exist.
 
-The MsBuild property take priority over the environment variable.
+The MSBuild property take priority over the environment variable.
 
 
 ## Icon

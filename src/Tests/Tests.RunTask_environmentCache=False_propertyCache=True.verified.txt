@@ -1,7 +1,5 @@
 ﻿{
   buildOutput:
-Copyright (C) Microsoft Corporation. All rights reserved.
-
      1>Project "{SolutionDirectory}SampleApp/SampleApp.csproj" on node 1 (Publish target(s)).
      1>PrepareForPublish:
        _CopyResolvedFilesToPublishPreserveNewest:

@@ -77,7 +77,9 @@ public class Tests : IAsyncDisposable
                 "Finished Cymbal",
                 "Creating directory",
                 "Build Engine version",
-                "Copying file from ");
+                "Copying file from ",
+                "Copyright (C) Microsoft Corporation",
+                "MSBuild version");
     }
 
     static Task<BufferedCommandResult> RunDotnet(string arguments) =>

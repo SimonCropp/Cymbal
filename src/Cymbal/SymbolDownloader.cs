@@ -2,14 +2,7 @@
 {
     public static (List<string> missingSymbols, List<string> foundSymbols) Run(string? cacheDirectory, List<string> toDownload)
     {
-        var arguments = "tool run dotnet-symbol --server-path https://symbols.nuget.org/download/symbols --server-path https://msdl.microsoft.com/download/symbols/ ";
-
-        if (cacheDirectory != null)
-        {
-            arguments += $"--cache-directory {cacheDirectory} ";
-        }
-
-        arguments += string.Join(" ", toDownload);
+        var arguments = BuildArguments(cacheDirectory, toDownload);
 
         var result = ProcessRunner.Execute("dotnet", arguments);
 
@@ -44,5 +37,18 @@
         }
 
         return (missingSymbols, foundSymbols);
+    }
+
+    static string BuildArguments(string? cacheDirectory, List<string> toDownload)
+    {
+        var arguments = "tool run dotnet-symbol --server-path https://symbols.nuget.org/download/symbols --server-path https://msdl.microsoft.com/download/symbols/ ";
+
+        if (cacheDirectory != null)
+        {
+            arguments += $"--cache-directory {cacheDirectory} ";
+        }
+
+        arguments += string.Join(" ", toDownload);
+        return arguments;
     }
 }

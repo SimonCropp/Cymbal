@@ -18,6 +18,13 @@ public class Tests : IAsyncDisposable
         }
     }
 
+    [Fact]
+    public void HasEmbedded()
+    {
+        Assert.True(SymbolChecker.HasEmbedded(typeof(Tests).Assembly.Location));
+        Assert.False(SymbolChecker.HasEmbedded(typeof(object).Assembly.Location));
+    }
+
     [Theory]
     [MemberData(nameof(GetData))]
     public async Task RunTask(bool environmentCache, bool propertyCache)

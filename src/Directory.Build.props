@@ -1,10 +1,10 @@
 <Project>
   <PropertyGroup>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <SolutionDir>$(ProjectDir)..\</SolutionDir>
     <SignAssembly>false</SignAssembly>
     <ImplicitUsings>enable</ImplicitUsings>
-    <LangVersion>10</LangVersion>
+    <LangVersion>preview</LangVersion>
     <Configurations>Debug;Release;IncludeTask</Configurations>
   </PropertyGroup>
 </Project>

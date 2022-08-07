@@ -17,7 +17,7 @@ public class CymbalTask :
             InnerExecute();
             return true;
         }
-        catch (ErrorException exception)
+        catch (Error exception)
         {
             Log.LogError($"Cymbal: {exception.Message}");
             return false;

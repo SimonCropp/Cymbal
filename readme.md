@@ -34,7 +34,7 @@ Works around [symbols not being copied from references](https://github.com/dotne
 This is done at Build time.
 
 
-### 2. Run dotnet-symbol on Publish
+### 2. Run dotnet-symbol
 
 On a [dotnet-publish](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish) any missing symbols are attempted to be downloaded via the [dotnet-symbol tool](https://www.nuget.org/packages/dotnet-symbol) ([Source](https://github.com/dotnet/symstore)).
 

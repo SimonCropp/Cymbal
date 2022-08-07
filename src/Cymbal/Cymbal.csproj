@@ -20,6 +20,8 @@
       <Pack>true</Pack>
       <PackagePath>build</PackagePath>
     </Content>
+    <Using Include="System.Reflection.PortableExecutable" />
+    <Using Include="Microsoft.Build.Framework" />
     <PackageReference Include="ProjectDefaults" Version="1.0.78" PrivateAssets="all" />
     <None Include="$(SolutionDir)icon.png" Pack="true" PackagePath="\" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.2.0" PrivateAssets="All" />

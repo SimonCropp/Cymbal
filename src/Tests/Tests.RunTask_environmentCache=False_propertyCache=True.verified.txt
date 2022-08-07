@@ -16,6 +16,7 @@
          Skipped assemblies with existing pdbs:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.SqlServer.Server.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
@@ -52,6 +53,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Runtime.Caching.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Permissions.dll
@@ -89,6 +91,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Runtime.Caching.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Permissions.pdb

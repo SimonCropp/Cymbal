@@ -10,25 +10,7 @@
         var foundSymbols = new List<string>();
         foreach (var line in result)
         {
-            if (line.StartsWith("ERROR: Not Found: "))
-            {
-                var scrubbedLine = line.Replace("ERROR: Not Found: ", "");
-                var indexOfDash = scrubbedLine.IndexOf(" - ");
-                var missing = scrubbedLine.Substring(0, indexOfDash);
-                if (!missingSymbols.Contains(missing))
-                {
-                    missingSymbols.Add(missing);
-                }
-
-                continue;
-            }
-
-            if (line.StartsWith("Writing: "))
-            {
-                var scrubbedLine = line.Replace("Writing: ", "");
-                foundSymbols.Add(scrubbedLine);
-                continue;
-            }
+            ProcessLine(line, missingSymbols, foundSymbols);
         }
 
         foreach (var foundFileName in foundSymbols.Select(Path.GetFileName))
@@ -37,6 +19,25 @@
         }
 
         return (missingSymbols, foundSymbols);
+    }
+
+    static void ProcessLine(string line, List<string> missingSymbols, List<string> foundSymbols)
+    {
+        if (line.StartsWith("ERROR: Not Found: "))
+        {
+            var scrubbedLine = line.Replace("ERROR: Not Found: ", "");
+            var indexOfDash = scrubbedLine.IndexOf(" - ");
+            var missing = scrubbedLine.Substring(0, indexOfDash);
+            if (!missingSymbols.Contains(missing))
+            {
+                missingSymbols.Add(missing);
+            }
+        }
+        else if (line.StartsWith("Writing: "))
+        {
+            var scrubbedLine = line.Replace("Writing: ", "");
+            foundSymbols.Add(scrubbedLine);
+        }
     }
 
     static string BuildArguments(string? cacheDirectory, List<string> toDownload)

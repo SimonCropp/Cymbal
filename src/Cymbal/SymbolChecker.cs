@@ -1,5 +1,3 @@
-using System.Reflection.PortableExecutable;
-
 public static class SymbolChecker
 {
     public static bool HasEmbedded(string path)

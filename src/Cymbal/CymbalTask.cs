@@ -4,10 +4,15 @@ public class CymbalTask :
     Task,
     ICancelableTask
 {
+    const string MsdlSymbolServer = "https://msdl.microsoft.com/download/symbols/";
+    const string NugetSymbolServer = "https://symbols.nuget.org/download/symbols";
+
     [Required]
     public string PublishDirectory { get; set; } = null!;
 
     public string? CacheDirectory { get; set; }
+
+    public string[]? SymbolServers { get; set; }
 
     public override bool Execute()
     {
@@ -75,7 +80,10 @@ Resolved CacheDirectory: {cacheDirectory}
 
         Log.LogMessageFromText($"Assemblies to process:{ListToIndented(toDownload)}", MessageImportance.Normal);
 
-        var (missingSymbols, foundSymbols) = SymbolDownloader.Run(cacheDirectory, toDownload);
+        var symbolServers = SymbolServers ?? DefaultSymbolServers();
+        Log.LogMessageFromText($"Symbol servers used:{ListToIndented(symbolServers)}", MessageImportance.Normal);
+
+        var (missingSymbols, foundSymbols) = SymbolDownloader.Run(cacheDirectory, toDownload, symbolServers);
 
         if (foundSymbols.Any())
         {
@@ -87,6 +95,13 @@ Resolved CacheDirectory: {cacheDirectory}
             Log.LogMessageFromText($"Missing Symbols:{ListToIndented(missingSymbols)}", MessageImportance.High);
         }
     }
+
+    static string[] DefaultSymbolServers() =>
+        new[]
+        {
+            NugetSymbolServer,
+            MsdlSymbolServer
+        };
 
     static string ListToIndented(IEnumerable<string> toDownload) =>
         $"{Environment.NewLine}\t{string.Join($"{Environment.NewLine}\t", toDownload)}";

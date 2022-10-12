@@ -1,8 +1,8 @@
-﻿public static class SymbolDownloader
+public static class SymbolDownloader
 {
-    public static (List<string> missingSymbols, List<string> foundSymbols) Run(string? cacheDirectory, List<string> toDownload)
+    public static (List<string> missingSymbols, List<string> foundSymbols) Run(string? cacheDirectory, List<string> toDownload, string[] symbolServers)
     {
-        var arguments = BuildArguments(cacheDirectory, toDownload);
+        var arguments = BuildArguments(cacheDirectory, toDownload, symbolServers);
 
         var result = ProcessRunner.Execute("dotnet", arguments);
 
@@ -40,9 +40,14 @@
         }
     }
 
-    static string BuildArguments(string? cacheDirectory, List<string> toDownload)
+    static string BuildArguments(string? cacheDirectory, List<string> toDownload, string[] symbolServers)
     {
-        var arguments = "tool run dotnet-symbol --server-path https://symbols.nuget.org/download/symbols --server-path https://msdl.microsoft.com/download/symbols/ ";
+        var arguments = "tool run dotnet-symbol ";
+
+        foreach (var server in symbolServers)
+        {
+            arguments += $"--server-path {server} ";
+        }
 
         if (cacheDirectory != null)
         {

@@ -28,7 +28,7 @@ Works around [symbols not being copied from references](https://github.com/dotne
   </ItemGroup>
 </Target>
 ```
-<sup><a href='/src/Cymbal/build/Cymbal.targets#L18-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Cymbal/build/Cymbal.targets#L19-L31' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This is done at Build time.

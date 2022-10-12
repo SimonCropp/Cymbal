@@ -89,6 +89,58 @@ public class Tests : IAsyncDisposable
                 "MSBuild version");
     }
 
+    [Fact]
+    public async Task Should_Parse_SymbolServer()
+    {
+        var sampleAppPath = Path.Combine(solutionDir, "SampleWithSymbolServer");
+        var includeTaskDir = Path.Combine(sampleAppPath, @"bin\IncludeTask");
+        if (Directory.Exists(includeTaskDir))
+        {
+            Directory.Delete(includeTaskDir, true);
+        }
+
+        await RunDotnet("build --configuration IncludeTask");
+
+        var arguments = "publish --configuration IncludeTask --no-build --no-restore --verbosity normal";
+
+        var publishResult = await Cli.Wrap("dotnet")
+            .WithArguments(arguments)
+            .WithWorkingDirectory(sampleAppPath)
+            .WithValidation(CommandResultValidation.None)
+            .ExecuteBufferedAsync();
+
+        if (publishResult.StandardError.Length > 0)
+        {
+            throw new(publishResult.StandardError);
+        }
+
+        if (publishResult.StandardOutput.Contains("error"))
+        {
+            throw new(publishResult.StandardOutput.Replace(solutionDir, ""));
+        }
+
+        var appPath = Path.Combine(solutionDir, "SampleWithSymbolServer/bin/IncludeTask/SampleWithSymbolServer.dll");
+        var runResult = await RunDotnet(appPath);
+
+        await Verify(
+                new
+                {
+                    buildOutput = publishResult.StandardOutput,
+                    consoleOutput = runResult.StandardOutput,
+                    consoleError = runResult.StandardError
+                })
+            .ScrubLinesWithReplace(line => line.Replace('\\', '/'))
+            .ScrubLinesContaining(
+                "Build started",
+                "Time Elapsed",
+                "Finished Cymbal",
+                "Creating directory",
+                "Build Engine version",
+                "Copying file from ",
+                "Copyright (C) Microsoft Corporation",
+                "MSBuild version");
+    }
+
     static Task<BufferedCommandResult> RunDotnet(string arguments) =>
         Cli.Wrap("dotnet")
             .WithArguments(arguments)

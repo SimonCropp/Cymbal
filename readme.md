@@ -28,7 +28,7 @@ Works around [symbols not being copied from references](https://github.com/dotne
   </ItemGroup>
 </Target>
 ```
-<sup><a href='/src/Cymbal/build/Cymbal.targets#L18-L30' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Cymbal/build/Cymbal.targets#L19-L31' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This is done at Build time.
@@ -101,6 +101,20 @@ dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
  * https://symbols.nuget.org/download/symbols 
  * https://msdl.microsoft.com/download/symbols/ 
 
+### Overriding symbol servers
+
+Add the following to the project or `Directory.Build.props`:
+
+<!-- snippet: SetSymbolServers -->
+<a id='snippet-setsymbolservers'></a>
+```csproj
+<ItemGroup>
+  <SymbolServer Include="http://localhost:88/symbols" />
+  <SymbolServer Include="http://localhost:89/symbols" />
+</ItemGroup>
+```
+<sup><a href='/src/SampleWithSymbolServer/SampleWithSymbolServer.csproj#L10-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-setsymbolservers' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 ## Cache Directory
 

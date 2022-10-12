@@ -68,6 +68,9 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+         Symbol servers used:
+         	https://symbols.nuget.org/download/symbols
+         	https://msdl.microsoft.com/download/symbols/
          Symbols written:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.pdb

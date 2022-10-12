@@ -113,7 +113,7 @@ Add the following to the project or `Directory.Build.props`:
   <SymbolServer Include="http://localhost:89/symbols" />
 </ItemGroup>
 ```
-<sup><a href='/src/SampleWithSymbolServer/SampleWithSymbolServer.csproj#L10-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-setsymbolservers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SampleWithSymbolServer/SampleWithSymbolServer.csproj#L9-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-setsymbolservers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Cache Directory

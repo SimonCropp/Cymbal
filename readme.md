@@ -101,6 +101,20 @@ dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
  * https://symbols.nuget.org/download/symbols 
  * https://msdl.microsoft.com/download/symbols/ 
 
+### Overriding symbol servers
+
+Add the following to the project or `Directory.Build.props`:
+
+<!-- snippet: SetSymbolServers -->
+<a id='snippet-setsymbolservers'></a>
+```csproj
+<ItemGroup>
+  <SymbolServer Include="http://localhost:88/symbols" />
+  <SymbolServer Include="http://localhost:89/symbols" />
+</ItemGroup>
+```
+<sup><a href='/src/SampleWithSymbolServer/SampleWithSymbolServer.csproj#L10-L13' title='Snippet source file'>snippet source</a> | <a href='#snippet-setsymbolservers' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 ## Cache Directory
 

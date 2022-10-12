@@ -6,10 +6,12 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
+<!-- begin-snippet: SetSymbolServers-->
   <ItemGroup>
     <SymbolServer Include="http://localhost:88/symbols" />
     <SymbolServer Include="http://localhost:89/symbols" />
   </ItemGroup>
+<!-- end-snippet -->
 
   <ItemGroup>
     <ProjectReference Include="..\AssemblyWithNoSymbols\AssemblyWithNoSymbols.csproj" />

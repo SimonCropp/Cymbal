@@ -167,11 +167,13 @@ public class Tests : IAsyncDisposable
         }
     }
 
-    public async ValueTask DisposeAsync()
+    public ValueTask DisposeAsync()
     {
-        if (!BuildServerDetector.Detected)
+        if (BuildServerDetector.Detected)
         {
-            await RunDotnet("build-server shutdown");
+            return ValueTask.CompletedTask;
         }
+
+        return new (RunDotnet("build-server shutdown"));
     }
 }

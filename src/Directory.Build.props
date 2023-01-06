@@ -4,7 +4,7 @@
     <SolutionDir>$(ProjectDir)..\</SolutionDir>
     <SignAssembly>false</SignAssembly>
     <ImplicitUsings>enable</ImplicitUsings>
-    <LangVersion>preview</LangVersion>
+    <LangVersion>11</LangVersion>
     <Configurations>Debug;Release;IncludeTask</Configurations>
   </PropertyGroup>
 </Project>

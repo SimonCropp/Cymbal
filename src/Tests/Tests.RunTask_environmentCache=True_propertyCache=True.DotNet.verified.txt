@@ -19,8 +19,8 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.SqlServer.Server.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
          Skipped assemblies with embedded symbols:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
          Assemblies to process:
@@ -32,6 +32,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.dll
@@ -61,12 +62,12 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
          Symbol servers used:
          	https://symbols.nuget.org/download/symbols
          	https://msdl.microsoft.com/download/symbols/
@@ -78,6 +79,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
@@ -101,12 +103,12 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net6.0/System.Drawing.Common.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Drawing.Common.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Runtime.Caching.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Windows.Extensions.pdb
          Missing Symbols:
          	Serilog.AspNetCore.pdb
          	Serilog.Extensions.Hosting.pdb

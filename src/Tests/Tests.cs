@@ -53,7 +53,8 @@ public class Tests : IAsyncDisposable
         var publishResult = await Cli.Wrap("dotnet")
             .WithArguments(arguments)
             .WithWorkingDirectory(sampleAppPath)
-            .WithValidation(CommandResultValidation.None).WithEnvironmentVariables(environmentVariables)
+            .WithValidation(CommandResultValidation.None)
+            .WithEnvironmentVariables(environmentVariables)
             .ExecuteBufferedAsync();
 
         if (publishResult.StandardError.Length > 0)
@@ -77,7 +78,8 @@ public class Tests : IAsyncDisposable
                     consoleError = runResult.StandardError
                 })
             .UseParameters(environmentCache, propertyCache)
-            .ScrubLinesWithReplace(line => line.Replace('\\', '/'))
+            .UniqueForRuntime()
+            .ScrubLinesWithReplace(_ => _.Replace('\\', '/'))
             .ScrubLinesContaining(
                 "Build started",
                 "Time Elapsed",
@@ -129,7 +131,7 @@ public class Tests : IAsyncDisposable
                     consoleOutput = runResult.StandardOutput,
                     consoleError = runResult.StandardError
                 })
-            .ScrubLinesWithReplace(line => line.Replace('\\', '/'))
+            .ScrubLinesWithReplace(_ => _.Replace('\\', '/'))
             .ScrubLinesContaining(
                 "Build started",
                 "Time Elapsed",

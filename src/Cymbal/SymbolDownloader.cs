@@ -54,7 +54,7 @@ public static class SymbolDownloader
             arguments += $"--cache-directory {cacheDirectory} ";
         }
 
-        arguments += string.Join(" ", toDownload);
+        arguments += string.Join(' ', toDownload);
         return arguments;
     }
 }

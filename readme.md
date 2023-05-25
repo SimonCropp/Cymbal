@@ -85,39 +85,25 @@ Given an exe project with a single package reference to `Microsoft.Data.SqlClien
 │   System.Security.Cryptography.ProtectedData.dll
 │   System.Security.Permissions.dll
 │   System.Windows.Extensions.dll
-│   
 └───runtimes
-    ├───unix
-    │   └───lib
-    │       └───net6.0
-    │               Microsoft.Data.SqlClient.dll
-    │               System.Drawing.Common.dll
-    │               
-    ├───win
-    │   └───lib
-    │       └───net6.0
-    │               Microsoft.Data.SqlClient.dll
-    │               Microsoft.Win32.SystemEvents.dll
-    │               System.Drawing.Common.dll
-    │               System.Runtime.Caching.dll
-    │               System.Security.Cryptography.ProtectedData.dll
-    │               System.Windows.Extensions.dll
-    │               
-    ├───win-arm
-    │   └───native
-    │           Microsoft.Data.SqlClient.SNI.dll
-    │           
-    ├───win-arm64
-    │   └───native
-    │           Microsoft.Data.SqlClient.SNI.dll
-    │           
-    ├───win-x64
-    │   └───native
-    │           Microsoft.Data.SqlClient.SNI.dll
-    │           
-    └───win-x86
-        └───native
-                Microsoft.Data.SqlClient.SNI.dll
+    ├───unix/lib/net6.0
+    │      Microsoft.Data.SqlClient.dll
+    │      System.Drawing.Common.dll
+    ├───win/lib/net6.0
+    │      Microsoft.Data.SqlClient.dll
+    │      Microsoft.Win32.SystemEvents.dll
+    │      System.Drawing.Common.dll
+    │      System.Runtime.Caching.dll
+    │      System.Security.Cryptography.ProtectedData.dll
+    │      System.Windows.Extensions.dll
+    ├───win-arm/native
+    │      Microsoft.Data.SqlClient.SNI.dll
+    ├───win-arm64/native
+    │      Microsoft.Data.SqlClient.SNI.dll
+    ├───win-x64/native
+    │      Microsoft.Data.SqlClient.SNI.dll
+    └───win-x86/native
+           Microsoft.Data.SqlClient.SNI.dll
 ```
 
 With the addition of Cymbal, the output on disk is 73 files with the pdb files included:
@@ -172,51 +158,37 @@ With the addition of Cymbal, the output on disk is 73 files with the pdb files i
 │   System.Security.Permissions.pdb
 │   System.Windows.Extensions.dll
 │   System.Windows.Extensions.pdb
-│   
 └───runtimes
-    ├───unix
-    │   └───lib
-    │       └───net6.0
-    │               Microsoft.Data.SqlClient.dll
-    │               Microsoft.Data.SqlClient.pdb
-    │               System.Drawing.Common.dll
-    │               System.Drawing.Common.pdb
-    │               
-    ├───win
-    │   └───lib
-    │       └───net6.0
-    │               Microsoft.Data.SqlClient.dll
-    │               Microsoft.Data.SqlClient.pdb
-    │               Microsoft.Win32.SystemEvents.dll
-    │               Microsoft.Win32.SystemEvents.pdb
-    │               System.Drawing.Common.dll
-    │               System.Drawing.Common.pdb
-    │               System.Runtime.Caching.dll
-    │               System.Runtime.Caching.pdb
-    │               System.Security.Cryptography.ProtectedData.dll
-    │               System.Security.Cryptography.ProtectedData.pdb
-    │               System.Windows.Extensions.dll
-    │               System.Windows.Extensions.pdb
-    │               
-    ├───win-arm
-    │   └───native
-    │           Microsoft.Data.SqlClient.SNI.dll
-    │           Microsoft.Data.SqlClient.SNI.pdb
-    │           
-    ├───win-arm64
-    │   └───native
-    │           Microsoft.Data.SqlClient.SNI.dll
-    │           Microsoft.Data.SqlClient.SNI.pdb
-    │           
-    ├───win-x64
-    │   └───native
-    │           Microsoft.Data.SqlClient.SNI.dll
-    │           Microsoft.Data.SqlClient.SNI.pdb
-    │           
-    └───win-x86
-        └───native
-                Microsoft.Data.SqlClient.SNI.dll
-                Microsoft.Data.SqlClient.SNI.pdb
+    ├───unix/lib/net6.0
+    │      Microsoft.Data.SqlClient.dll
+    │      Microsoft.Data.SqlClient.pdb
+    │      System.Drawing.Common.dll
+    │      System.Drawing.Common.pdb
+    ├───win/lib/net6.0
+    │      Microsoft.Data.SqlClient.dll
+    │      Microsoft.Data.SqlClient.pdb
+    │      Microsoft.Win32.SystemEvents.dll
+    │      Microsoft.Win32.SystemEvents.pdb
+    │      System.Drawing.Common.dll
+    │      System.Drawing.Common.pdb
+    │      System.Runtime.Caching.dll
+    │      System.Runtime.Caching.pdb
+    │      System.Security.Cryptography.ProtectedData.dll
+    │      System.Security.Cryptography.ProtectedData.pdb
+    │      System.Windows.Extensions.dll
+    │      System.Windows.Extensions.pdb
+    ├───win-arm/native
+    │      Microsoft.Data.SqlClient.SNI.dll
+    │      Microsoft.Data.SqlClient.SNI.pdb
+    ├───win-arm64/native
+    │      Microsoft.Data.SqlClient.SNI.dll
+    │      Microsoft.Data.SqlClient.SNI.pdb
+    ├───win-x64/native
+    │      Microsoft.Data.SqlClient.SNI.dll
+    │      Microsoft.Data.SqlClient.SNI.pdb
+    └───win-x86/native
+           Microsoft.Data.SqlClient.SNI.dll
+           Microsoft.Data.SqlClient.SNI.pdb
 ```
 
 

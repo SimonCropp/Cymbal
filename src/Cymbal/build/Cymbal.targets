@@ -5,28 +5,29 @@
   </PropertyGroup>
 
   <UsingTask
-    TaskName="CymbalTask"
-    AssemblyFile="$(CymbalAssembly)" />
+          TaskName="CymbalTask"
+          AssemblyFile="$(CymbalAssembly)" />
   <Target
-    Name="CymbalTarget"
-    AfterTargets="Publish" >
+          Name="CymbalTarget"
+          AfterTargets="Publish" >
     <CymbalTask PublishDirectory="$(PublishDir)"
                 CacheDirectory="$(CymbalCacheDirectory)"
                 SymbolServers="@(SymbolServer)"/>
     <Message Text="@(TargetOutputs,'%0a')"
              Importance="high" />
   </Target>
-<!-- begin-snippet: IncludeSymbolFromReferences-->
+  <!-- begin-snippet: IncludeSymbolFromReferences-->
   <Target Name="IncludeSymbolFromReferences"
           AfterTargets="ResolveAssemblyReferences"
           Condition="@(ReferenceCopyLocalPaths) != ''">
     <ItemGroup>
-      <ReferenceCopyLocalPaths
+      <PdbFilesToAdd
               Include="%(ReferenceCopyLocalPaths.RelativeDir)%(ReferenceCopyLocalPaths.Filename).pdb"
               DestinationSubDirectory="%(ReferenceCopyLocalPaths.DestinationSubDirectory)" />
-      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)"
-                               Condition="!Exists('%(FullPath)')" />
+      <PdbFilesToAdd Remove="@(PdbFilesToAdd)"
+                     Condition="!Exists('%(FullPath)')" />
+      <ReferenceCopyLocalPaths Include="@(PdbFilesToAdd)" />
     </ItemGroup>
   </Target>
-<!-- end-snippet -->
+  <!-- end-snippet -->
 </Project>

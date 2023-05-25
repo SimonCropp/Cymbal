@@ -53,6 +53,173 @@ Install-Package Cymbal
 ```
 
 
+## Outcome
+
+Given an exe project with a single package reference to `Microsoft.Data.SqlClient`, the output on disk is 39 files:
+
+```
+│   Azure.Core.dll
+│   Azure.Identity.dll
+│   Microsoft.Bcl.AsyncInterfaces.dll
+│   Microsoft.Data.SqlClient.dll
+│   Microsoft.Identity.Client.dll
+│   Microsoft.Identity.Client.Extensions.Msal.dll
+│   Microsoft.IdentityModel.Abstractions.dll
+│   Microsoft.IdentityModel.JsonWebTokens.dll
+│   Microsoft.IdentityModel.Logging.dll
+│   Microsoft.IdentityModel.Protocols.dll
+│   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+│   Microsoft.IdentityModel.Tokens.dll
+│   Microsoft.SqlServer.Server.dll
+│   Microsoft.Win32.SystemEvents.dll
+│   SampleApp.deps.json
+│   SampleApp.dll
+│   SampleApp.exe
+│   SampleApp.pdb
+│   SampleApp.runtimeconfig.json
+│   System.Configuration.ConfigurationManager.dll
+│   System.Drawing.Common.dll
+│   System.IdentityModel.Tokens.Jwt.dll
+│   System.Memory.Data.dll
+│   System.Runtime.Caching.dll
+│   System.Security.Cryptography.ProtectedData.dll
+│   System.Security.Permissions.dll
+│   System.Windows.Extensions.dll
+│   
+└───runtimes
+    ├───unix
+    │   └───lib
+    │       └───net6.0
+    │               Microsoft.Data.SqlClient.dll
+    │               System.Drawing.Common.dll
+    │               
+    ├───win
+    │   └───lib
+    │       └───net6.0
+    │               Microsoft.Data.SqlClient.dll
+    │               Microsoft.Win32.SystemEvents.dll
+    │               System.Drawing.Common.dll
+    │               System.Runtime.Caching.dll
+    │               System.Security.Cryptography.ProtectedData.dll
+    │               System.Windows.Extensions.dll
+    │               
+    ├───win-arm
+    │   └───native
+    │           Microsoft.Data.SqlClient.SNI.dll
+    │           
+    ├───win-arm64
+    │   └───native
+    │           Microsoft.Data.SqlClient.SNI.dll
+    │           
+    ├───win-x64
+    │   └───native
+    │           Microsoft.Data.SqlClient.SNI.dll
+    │           
+    └───win-x86
+        └───native
+                Microsoft.Data.SqlClient.SNI.dll
+```
+
+With the addition of Cymbal, the output on disk is 73 files with the pdb files included:
+
+```
+│   Azure.Core.dll
+│   Azure.Core.pdb
+│   Azure.Identity.dll
+│   Azure.Identity.pdb
+│   Microsoft.Bcl.AsyncInterfaces.dll
+│   Microsoft.Bcl.AsyncInterfaces.pdb
+│   Microsoft.Data.SqlClient.dll
+│   Microsoft.Data.SqlClient.pdb
+│   Microsoft.Identity.Client.dll
+│   Microsoft.Identity.Client.Extensions.Msal.dll
+│   Microsoft.Identity.Client.Extensions.Msal.pdb
+│   Microsoft.Identity.Client.pdb
+│   Microsoft.IdentityModel.Abstractions.dll
+│   Microsoft.IdentityModel.Abstractions.pdb
+│   Microsoft.IdentityModel.JsonWebTokens.dll
+│   Microsoft.IdentityModel.JsonWebTokens.pdb
+│   Microsoft.IdentityModel.Logging.dll
+│   Microsoft.IdentityModel.Logging.pdb
+│   Microsoft.IdentityModel.Protocols.dll
+│   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+│   Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
+│   Microsoft.IdentityModel.Protocols.pdb
+│   Microsoft.IdentityModel.Tokens.dll
+│   Microsoft.IdentityModel.Tokens.pdb
+│   Microsoft.SqlServer.Server.dll
+│   Microsoft.SqlServer.Server.pdb
+│   Microsoft.Win32.SystemEvents.dll
+│   Microsoft.Win32.SystemEvents.pdb
+│   SampleApp.deps.json
+│   SampleApp.dll
+│   SampleApp.exe
+│   SampleApp.pdb
+│   SampleApp.runtimeconfig.json
+│   System.Configuration.ConfigurationManager.dll
+│   System.Configuration.ConfigurationManager.pdb
+│   System.Drawing.Common.dll
+│   System.Drawing.Common.pdb
+│   System.IdentityModel.Tokens.Jwt.dll
+│   System.IdentityModel.Tokens.Jwt.pdb
+│   System.Memory.Data.dll
+│   System.Memory.Data.pdb
+│   System.Runtime.Caching.dll
+│   System.Runtime.Caching.pdb
+│   System.Security.Cryptography.ProtectedData.dll
+│   System.Security.Cryptography.ProtectedData.pdb
+│   System.Security.Permissions.dll
+│   System.Security.Permissions.pdb
+│   System.Windows.Extensions.dll
+│   System.Windows.Extensions.pdb
+│   
+└───runtimes
+    ├───unix
+    │   └───lib
+    │       └───net6.0
+    │               Microsoft.Data.SqlClient.dll
+    │               Microsoft.Data.SqlClient.pdb
+    │               System.Drawing.Common.dll
+    │               System.Drawing.Common.pdb
+    │               
+    ├───win
+    │   └───lib
+    │       └───net6.0
+    │               Microsoft.Data.SqlClient.dll
+    │               Microsoft.Data.SqlClient.pdb
+    │               Microsoft.Win32.SystemEvents.dll
+    │               Microsoft.Win32.SystemEvents.pdb
+    │               System.Drawing.Common.dll
+    │               System.Drawing.Common.pdb
+    │               System.Runtime.Caching.dll
+    │               System.Runtime.Caching.pdb
+    │               System.Security.Cryptography.ProtectedData.dll
+    │               System.Security.Cryptography.ProtectedData.pdb
+    │               System.Windows.Extensions.dll
+    │               System.Windows.Extensions.pdb
+    │               
+    ├───win-arm
+    │   └───native
+    │           Microsoft.Data.SqlClient.SNI.dll
+    │           Microsoft.Data.SqlClient.SNI.pdb
+    │           
+    ├───win-arm64
+    │   └───native
+    │           Microsoft.Data.SqlClient.SNI.dll
+    │           Microsoft.Data.SqlClient.SNI.pdb
+    │           
+    ├───win-x64
+    │   └───native
+    │           Microsoft.Data.SqlClient.SNI.dll
+    │           Microsoft.Data.SqlClient.SNI.pdb
+    │           
+    └───win-x86
+        └───native
+                Microsoft.Data.SqlClient.SNI.dll
+                Microsoft.Data.SqlClient.SNI.pdb
+```
+
+
 ## dotnet-symbol required
 
 To install the [dotnet-symbol tool](https://www.nuget.org/packages/dotnet-symbol), the recommended approach is to [install it as a local tool](https://docs.microsoft.com/en-us/dotnet/core/tools/local-tools-how-to-use).
@@ -132,3 +299,5 @@ The MSBuild property take priority over the environment variable.
 ## Icon
 
 [Cymbals](https://thenounproject.com/term/cymbals/4920970/) designed by [Eucalyp](https://thenounproject.com/eucalyp) from [The Noun Project](https://thenounproject.com).
+
+

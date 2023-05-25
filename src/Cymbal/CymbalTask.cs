@@ -52,12 +52,12 @@ public class CymbalTask :
         }
 
         var fullPublishPath = Path.GetFullPath(PublishDirectory);
-        var inputs = $@"
-PublishDir: {fullPublishPath}
-CymbalCacheDirectory environment variable: {environmentCacheDirectory}
-CymbalCacheDirectory MsBuild property: {CacheDirectory}
-Resolved CacheDirectory: {cacheDirectory}
-";
+        var inputs = $"""
+            PublishDir: {fullPublishPath}
+            CymbalCacheDirectory environment variable: {environmentCacheDirectory}
+            CymbalCacheDirectory MsBuild property: {CacheDirectory}
+            Resolved CacheDirectory: {cacheDirectory}
+            """;
         Log.LogMessageFromText(inputs, MessageImportance.High);
 
         var (hasPdb, isEmbedded, toDownload) = GetFiles(fullPublishPath);

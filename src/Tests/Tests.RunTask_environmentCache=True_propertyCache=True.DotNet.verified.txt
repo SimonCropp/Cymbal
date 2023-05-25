@@ -9,12 +9,10 @@
        Publish:
          SampleApp -> {SolutionDirectory}SampleApp/bin/IncludeTask/publish/
        CymbalTarget:
-         
          PublishDir: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/
          CymbalCacheDirectory environment variable: {SolutionDirectory}Cache
          CymbalCacheDirectory MsBuild property: {SolutionDirectory}Cache
          Resolved CacheDirectory: {SolutionDirectory}Cache
-         
          Skipped assemblies with existing pdbs:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll

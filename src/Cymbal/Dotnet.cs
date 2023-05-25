@@ -40,9 +40,11 @@ public static class ProcessRunner
 
         if (!process.DoubleWaitForExit())
         {
-            var timeoutError = $@"Process timed out. {commandLineMessage}.
-Output: {string.Join(Environment.NewLine, output)}
-Error: {errorBuilder}";
+            var timeoutError = $"""
+                Process timed out. {commandLineMessage}.
+                Output: {string.Join(Environment.NewLine, output)}
+                Error: {errorBuilder}
+                """;
             throw new Error(timeoutError);
         }
 
@@ -64,9 +66,11 @@ Error: {errorBuilder}";
             throw new Error(message);
         }
 
-        var error = $@"Could not execute process. {commandLineMessage}.
-Output: {string.Join(Environment.NewLine, output)}
-Error: {errors}";
+        var error = $"""
+            Could not execute process. {commandLineMessage}.
+            Output: {string.Join(Environment.NewLine, output)}
+            Error: {errors}
+            """;
         throw new Error(error);
     }
 }

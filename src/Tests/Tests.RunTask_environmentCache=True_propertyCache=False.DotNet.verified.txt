@@ -1,18 +1,18 @@
 ﻿{
   buildOutput:
      1>Project "{SolutionDirectory}SampleApp/SampleApp.csproj" on node 1 (Publish target(s)).
-     1>PrepareForPublish:
+     1>IncludeSymbolFromReferences:
+       {SolutionDirectory}Cymbal/build/Cymbal.targets(26,14): message : MSB4120: Item 'ReferenceCopyLocalPaths' definition within target references itself via (qualified or unqualified) metadatum 'DestinationSubDirectory'. This can lead to unintended expansion and cross-applying of pre-existing items. More info: https://aka.ms/msbuild/metadata-self-ref [{SolutionDirectory}SampleApp/SampleApp.csproj]
+       PrepareForPublish:
        _CopyResolvedFilesToPublishPreserveNewest:
        _CopyResolvedFilesToPublishAlways:
        Publish:
          SampleApp -> {SolutionDirectory}SampleApp/bin/IncludeTask/publish/
        CymbalTarget:
-         
          PublishDir: {SolutionDirectory}SampleApp/bin/IncludeTask/publish/
          CymbalCacheDirectory environment variable: {SolutionDirectory}Cache
          CymbalCacheDirectory MsBuild property: {SolutionDirectory}Cache
          Resolved CacheDirectory: {SolutionDirectory}Cache
-         
          Skipped assemblies with existing pdbs:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
@@ -23,6 +23,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
          Skipped assemblies with embedded symbols:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.dll
          Assemblies to process:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithNoSymbols.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.dll
@@ -45,7 +46,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.AspNetCore.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Formatting.Compact.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.dll
@@ -112,7 +112,6 @@
          Missing Symbols:
          	Serilog.AspNetCore.pdb
          	Serilog.Extensions.Hosting.pdb
-         	Serilog.Extensions.Logging.pdb
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Console.pdb
          	Serilog.Sinks.Debug.pdb

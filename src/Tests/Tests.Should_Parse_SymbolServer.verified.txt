@@ -1,9 +1,7 @@
 ﻿{
   buildOutput:
      1>Project "{SolutionDirectory}SampleWithSymbolServer/SampleWithSymbolServer.csproj" on node 1 (Publish target(s)).
-     1>IncludeSymbolFromReferences:
-       {SolutionDirectory}Cymbal/build/Cymbal.targets(26,14): message : MSB4120: Item 'ReferenceCopyLocalPaths' definition within target references itself via (qualified or unqualified) metadatum 'DestinationSubDirectory'. This can lead to unintended expansion and cross-applying of pre-existing items. More info: https://aka.ms/msbuild/metadata-self-ref [{SolutionDirectory}SampleWithSymbolServer/SampleWithSymbolServer.csproj]
-       PrepareForPublish:
+     1>PrepareForPublish:
        _CopyResolvedFilesToPublishPreserveNewest:
        _CopyResolvedFilesToPublishAlways:
        Publish:

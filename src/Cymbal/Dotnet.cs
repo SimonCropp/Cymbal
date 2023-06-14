@@ -36,7 +36,7 @@ public static class ProcessRunner
         };
         process.BeginErrorReadLine();
 
-        var commandLineMessage = $@"Command line: {command} {arguments}.";
+        var commandLineMessage = $"Command line: {command} {arguments}.";
 
         if (!process.DoubleWaitForExit())
         {

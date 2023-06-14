@@ -5,7 +5,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="7.0.7" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.54.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />

@@ -22,7 +22,7 @@
     </Content>
     <Using Include="System.Reflection.PortableExecutable" />
     <Using Include="Microsoft.Build.Framework" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.93" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.94" PrivateAssets="all" />
     <None Include="$(SolutionDir)icon.png" Pack="true" PackagePath="\" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.7.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />

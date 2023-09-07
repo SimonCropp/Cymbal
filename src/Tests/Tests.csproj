@@ -7,7 +7,7 @@
     <ProjectReference Include="..\Cymbal\Cymbal.csproj" />
     <PackageReference Include="ProjectDefaults" Version="1.0.94" PrivateAssets="all" />
     <PackageReference Include="MarkdownSnippets.MsBuild" Version="25.1.0" PrivateAssets="all" />
-    <PackageReference Include="Polyfill" Version="1.27.1" PrivateAssets="all" />
+    <PackageReference Include="Polyfill" Version="1.27.2" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.2" />
     <PackageReference Include="Verify.DiffPlex" Version="2.2.1" />
     <PackageReference Include="Verify.Xunit" Version="21.0.0" />

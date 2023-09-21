@@ -5,6 +5,8 @@
 
 Cymbal is an MSBuild task that enables bundling dotnet symbols for references with a deployed app. The goal being to enable line numbers for exceptions in a production system.
 
+**See [Milestones](../../milestones?state=closed) for release notes.**
+
 
 ## Cymbal performs two operations
 

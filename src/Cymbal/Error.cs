@@ -1,6 +1,2 @@
-﻿public class Error : Exception
-{
-    public Error(string message) : base(message)
-    {
-    }
-}
+﻿public class Error(string message) :
+    Exception(message);

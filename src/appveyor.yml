@@ -8,7 +8,6 @@ environment:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
 before_build:
 - pwsh: |
-    dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
     if ($isWindows) {
       Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
       ./dotnet-install.ps1 -JSonFile src/global.json -Architecture x64 -InstallDir 'C:\Program Files\dotnet'
@@ -22,6 +21,7 @@ before_build:
         sudo ./dotnet-install.sh --jsonfile src/global.json --architecture x64 --install-dir '/usr/share/dotnet'
       }
     }
+    dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 build_script:
 - dotnet build src --configuration Release
 - dotnet test src --configuration Release --no-build --no-restore

@@ -6,5 +6,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>preview</LangVersion>
     <Configurations>Debug;Release;IncludeTask</Configurations>
+    <NoWarn>NETSDK1057</NoWarn>
   </PropertyGroup>
 </Project>

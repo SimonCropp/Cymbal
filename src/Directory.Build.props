@@ -7,5 +7,6 @@
     <LangVersion>preview</LangVersion>
     <Configurations>Debug;Release;IncludeTask</Configurations>
     <NoWarn>NETSDK1057</NoWarn>
+    <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
   </PropertyGroup>
 </Project>

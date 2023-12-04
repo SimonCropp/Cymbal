@@ -40,7 +40,8 @@ public static class ProcessRunner
 
         if (!process.DoubleWaitForExit())
         {
-            var timeoutError = $"""
+            var timeoutError =
+                $"""
                 Process timed out. {commandLineMessage}.
                 Output: {string.Join(Environment.NewLine, output)}
                 Error: {errorBuilder}
@@ -56,7 +57,8 @@ public static class ProcessRunner
         var errors = errorBuilder.ToString();
         if (errors.Contains("Cannot find a tool in the manifest file that has a command named"))
         {
-            var message = $"""
+            var message =
+                $"""
             The dotnet tool `dotnet-symbol` was not found.
             {commandLineMessage}
             To install, run in the root of the repository
@@ -66,7 +68,8 @@ public static class ProcessRunner
             throw new Error(message);
         }
 
-        var error = $"""
+        var error =
+            $"""
             Could not execute process. {commandLineMessage}.
             Output: {string.Join(Environment.NewLine, output)}
             Error: {errors}

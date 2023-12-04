@@ -53,11 +53,11 @@ public class CymbalTask :
 
         var fullPublishPath = Path.GetFullPath(PublishDirectory);
         var inputs = $"""
-            PublishDir: {fullPublishPath}
-            CymbalCacheDirectory environment variable: {environmentCacheDirectory}
-            CymbalCacheDirectory MsBuild property: {CacheDirectory}
-            Resolved CacheDirectory: {cacheDirectory}
-            """;
+                      PublishDir: {fullPublishPath}
+                      CymbalCacheDirectory environment variable: {environmentCacheDirectory}
+                      CymbalCacheDirectory MsBuild property: {CacheDirectory}
+                      Resolved CacheDirectory: {cacheDirectory}
+                      """;
         Log.LogMessageFromText(inputs, MessageImportance.High);
 
         var (hasPdb, isEmbedded, toDownload) = GetFiles(fullPublishPath);
@@ -97,11 +97,10 @@ public class CymbalTask :
     }
 
     static string[] DefaultSymbolServers() =>
-        new[]
-        {
-            NugetSymbolServer,
-            MsdlSymbolServer
-        };
+    [
+        NugetSymbolServer,
+        MsdlSymbolServer
+    ];
 
     static string ListToIndented(IEnumerable<string> toDownload) =>
         $"{Environment.NewLine}\t{string.Join($"{Environment.NewLine}\t", toDownload)}";

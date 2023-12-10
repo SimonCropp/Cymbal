@@ -5,14 +5,14 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cymbal\Cymbal.csproj" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.102" PrivateAssets="all" />
-    <PackageReference Include="MarkdownSnippets.MsBuild" Version="25.1.0" PrivateAssets="all" />
-    <PackageReference Include="Polyfill" Version="1.33.1" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.106" PrivateAssets="all" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" Version="26.0.0" PrivateAssets="all" />
+    <PackageReference Include="Polyfill" Version="1.33.2" PrivateAssets="all" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="Verify.DiffPlex" Version="2.3.0" />
-    <PackageReference Include="Verify.Xunit" Version="22.7.1" />
+    <PackageReference Include="Verify.Xunit" Version="22.8.0" />
     <PackageReference Include="CliWrap" Version="3.6.4" />
-    <PackageReference Include="Xunit" Version="2.6.2" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.4" PrivateAssets="all" />
+    <PackageReference Include="Xunit" Version="2.6.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.5" PrivateAssets="all" />
   </ItemGroup>
 </Project>

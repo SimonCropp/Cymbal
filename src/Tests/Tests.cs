@@ -151,21 +151,21 @@ public class Tests : IAsyncDisposable
             .ExecuteBufferedAsync();
 
     static bool[] bools =
-    {
+    [
         true,
         false
-    };
+    ];
 
     public static IEnumerable<object?[]> GetData()
     {
         foreach (var environmentCache in bools)
         foreach (var propertyCache in bools)
         {
-            yield return new object?[]
-            {
+            yield return
+            [
                 environmentCache,
                 propertyCache
-            };
+            ];
         }
     }
 

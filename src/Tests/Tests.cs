@@ -2,7 +2,6 @@
 using CliWrap.Buffered;
 using DiffEngine;
 
-[UsesVerify]
 public class Tests : IAsyncDisposable
 {
     static string solutionDir;

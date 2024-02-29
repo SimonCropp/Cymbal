@@ -81,7 +81,7 @@ public class CymbalTask :
 
         Log.LogMessageFromText($"Assemblies to process:{ListToIndented(toDownload)}", MessageImportance.Normal);
 
-        var symbolServers = SymbolServers ?? DefaultSymbolServers();
+        var symbolServers = SymbolServers ?? DefaultSymbolServers;
         Log.LogMessageFromText($"Symbol servers used:{ListToIndented(symbolServers)}", MessageImportance.Normal);
 
         var (missingSymbols, foundSymbols) = SymbolDownloader.Run(cacheDirectory, toDownload, symbolServers);

@@ -15,7 +15,7 @@ public static class SymbolDownloader
 
         foreach (var foundFileName in foundSymbols.Select(Path.GetFileName))
         {
-            missingSymbols.Remove(foundFileName);
+            missingSymbols.Remove(foundFileName!);
         }
 
         return (missingSymbols, foundSymbols);
@@ -27,7 +27,7 @@ public static class SymbolDownloader
         {
             var scrubbedLine = line.Replace("ERROR: Not Found: ", "");
             var indexOfDash = scrubbedLine.IndexOf(" - ");
-            var missing = scrubbedLine.Substring(0, indexOfDash);
+            var missing = scrubbedLine[..indexOfDash];
             if (!missingSymbols.Contains(missing))
             {
                 missingSymbols.Add(missing);

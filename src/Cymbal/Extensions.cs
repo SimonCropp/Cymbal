@@ -4,7 +4,7 @@ static class Extensions
     public static bool DoubleWaitForExit(this Process process)
     {
         //4min30sec
-        var timeout = 270000;
+        const int timeout = 270000;
         var result = process.WaitForExit(timeout);
         if (result)
         {

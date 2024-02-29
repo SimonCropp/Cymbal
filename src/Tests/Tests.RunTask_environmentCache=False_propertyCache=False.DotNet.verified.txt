@@ -13,12 +13,9 @@
          Resolved CacheDirectory: 
          Skipped assemblies with existing pdbs:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.SqlServer.Server.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net6.0/Microsoft.Data.SqlClient.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/Microsoft.Data.SqlClient.dll
          Skipped assemblies with embedded symbols:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.dll
@@ -30,6 +27,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.dll
@@ -40,7 +38,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Win32.SystemEvents.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.AspNetCore.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.dll
@@ -49,23 +46,27 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Debug.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Runtime.Caching.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Permissions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Windows.Extensions.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/de/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/es/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/fr/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/it/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ja/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ko/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/pt-BR/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ru/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/zh-Hans/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/zh-Hant/Microsoft.Data.SqlClient.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Drawing.Common.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Runtime.Caching.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net8.0/Microsoft.Data.SqlClient.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net8.0/Microsoft.Data.SqlClient.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net8.0/System.Runtime.Caching.dll
          Symbol servers used:
          	https://symbols.nuget.org/download/symbols
          	https://msdl.microsoft.com/download/symbols/
@@ -76,6 +77,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
@@ -86,27 +88,20 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Win32.SystemEvents.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Drawing.Common.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Runtime.Caching.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Permissions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Windows.Extensions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net6.0/System.Drawing.Common.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Drawing.Common.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Runtime.Caching.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net6.0/System.Windows.Extensions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net8.0/Microsoft.Data.SqlClient.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net8.0/Microsoft.Data.SqlClient.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net8.0/System.Runtime.Caching.pdb
          Missing Symbols:
          	Serilog.AspNetCore.pdb
          	Serilog.Extensions.Hosting.pdb

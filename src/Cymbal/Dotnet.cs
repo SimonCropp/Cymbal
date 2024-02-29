@@ -36,13 +36,12 @@ public static class ProcessRunner
         };
         process.BeginErrorReadLine();
 
-        var commandLineMessage = $"Command line: {command} {arguments}.";
-
         if (!process.DoubleWaitForExit())
         {
             var timeoutError =
                 $"""
-                Process timed out. {commandLineMessage}.
+                Process timed out.
+                Command line: {command} {arguments}.
                 Output: {string.Join(Environment.NewLine, output)}
                 Error: {errorBuilder}
                 """;
@@ -60,7 +59,7 @@ public static class ProcessRunner
             var message =
                 $"""
             The dotnet tool `dotnet-symbol` was not found.
-            {commandLineMessage}
+            Command line: {command} {arguments}
             To install, run in the root of the repository
                 dotnet new tool-manifest
                 dotnet tool install dotnet-symbol
@@ -70,7 +69,8 @@ public static class ProcessRunner
 
         var error =
             $"""
-            Could not execute process. {commandLineMessage}.
+            Could not execute process.
+            Command line: {command} {arguments}.
             Output: {string.Join(Environment.NewLine, output)}
             Error: {errors}
             """;

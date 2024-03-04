@@ -23,7 +23,7 @@
     <PackageReference Include="System.Reflection.Metadata" Version="8.0.0" />
     <Using Include="System.Reflection.PortableExecutable" />
     <Using Include="Microsoft.Build.Framework" />
-    <PackageReference Include="ProjectDefaults" Version="1.0.118" PrivateAssets="all" />
+    <PackageReference Include="ProjectDefaults" Version="1.0.125" PrivateAssets="all" />
     <None Include="$(SolutionDir)icon.png" Pack="true" PackagePath="\" />
     <PackageReference Include="Polyfill" Version="3.0.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.9.5" PrivateAssets="All" />

@@ -63,17 +63,17 @@ public class CymbalTask :
 
         var (hasPdb, isEmbedded, toDownload) = GetFiles(fullPublishPath);
 
-        if (hasPdb.Any())
+        if (hasPdb.Count != 0)
         {
             Log.LogMessageFromText($"Skipped assemblies with existing pdbs:{ListToIndented(hasPdb)}", MessageImportance.Normal);
         }
 
-        if (isEmbedded.Any())
+        if (isEmbedded.Count != 0)
         {
             Log.LogMessageFromText($"Skipped assemblies with embedded symbols:{ListToIndented(isEmbedded)}", MessageImportance.Normal);
         }
 
-        if (!toDownload.Any())
+        if (toDownload.Count == 0)
         {
             Log.LogMessageFromText("No assemblies found to process", MessageImportance.Normal);
             return;
@@ -86,12 +86,12 @@ public class CymbalTask :
 
         var (missingSymbols, foundSymbols) = SymbolDownloader.Run(cacheDirectory, toDownload, symbolServers);
 
-        if (foundSymbols.Any())
+        if (foundSymbols.Count != 0)
         {
             Log.LogMessageFromText($"Symbols written:{ListToIndented(foundSymbols)}", MessageImportance.High);
         }
 
-        if (missingSymbols.Any())
+        if (missingSymbols.Count != 0)
         {
             Log.LogMessageFromText($"Missing Symbols:{ListToIndented(missingSymbols)}", MessageImportance.High);
         }

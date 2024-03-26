@@ -16,7 +16,7 @@ Cymbal is an MSBuild task that enables bundling dotnet symbols for references wi
 Works around [symbols not being copied from references](https://github.com/dotnet/sdk/issues/1458). This is done via manipulating `ReferenceCopyLocalPaths`:
 
 <!-- snippet: IncludeSymbolFromReferences -->
-<a id='snippet-includesymbolfromreferences'></a>
+<a id='snippet-IncludeSymbolFromReferences'></a>
 ```targets
 <Target Name="IncludeSymbolFromReferences"
         AfterTargets="ResolveAssemblyReferences"
@@ -31,7 +31,7 @@ Works around [symbols not being copied from references](https://github.com/dotne
   </ItemGroup>
 </Target>
 ```
-<sup><a href='/src/Cymbal/build/Cymbal.targets#L19-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-includesymbolfromreferences' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Cymbal/build/Cymbal.targets#L19-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-IncludeSymbolFromReferences' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This is done at Build time.
@@ -248,14 +248,14 @@ dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 Add the following to the project or `Directory.Build.props`:
 
 <!-- snippet: SetSymbolServers -->
-<a id='snippet-setsymbolservers'></a>
+<a id='snippet-SetSymbolServers'></a>
 ```csproj
 <ItemGroup>
   <SymbolServer Include="http://localhost:88/symbols" />
   <SymbolServer Include="http://localhost:89/symbols" />
 </ItemGroup>
 ```
-<sup><a href='/src/SampleWithSymbolServer/SampleWithSymbolServer.csproj#L9-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-setsymbolservers' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/SampleWithSymbolServer/SampleWithSymbolServer.csproj#L9-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-SetSymbolServers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Cache Directory

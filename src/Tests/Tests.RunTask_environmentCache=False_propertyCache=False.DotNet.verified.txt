@@ -47,6 +47,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Debug.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.ClientModel.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.dll
@@ -94,6 +95,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.ClientModel.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.pdb

@@ -5,7 +5,7 @@
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="8.0.5" />
     <!-- explicit due to CVE -->
     <PackageReference Include="Azure.Identity" Version="1.11.3" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />

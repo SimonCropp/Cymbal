@@ -13,6 +13,6 @@
     <PackageReference Include="Verify.Xunit" Version="24.2.0" />
     <PackageReference Include="CliWrap" Version="3.6.6" />
     <PackageReference Include="Xunit" Version="2.8.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.0" PrivateAssets="all" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.1" PrivateAssets="all" />
   </ItemGroup>
 </Project>

@@ -238,6 +238,7 @@ Or to point to a nested directory:
 dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
 ```
 
+
 ### Scanned symbol servers
 
  * https://symbols.nuget.org/download/symbols 
@@ -257,6 +258,7 @@ Add the following to the project or `Directory.Build.props`:
 ```
 <sup><a href='/src/SampleWithSymbolServer/SampleWithSymbolServer.csproj#L9-L14' title='Snippet source file'>snippet source</a> | <a href='#snippet-SetSymbolServers' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
 
 ## Cache Directory
 

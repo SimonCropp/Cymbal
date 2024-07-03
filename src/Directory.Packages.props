@@ -10,12 +10,12 @@
     <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="17.10.4" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-    <PackageVersion Include="Polyfill" Version="5.5.3" />
+    <PackageVersion Include="Polyfill" Version="5.6.0" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.128" />
     <PackageVersion Include="Serilog.AspNetCore" Version="8.0.1" />
     <PackageVersion Include="System.Reflection.Metadata" Version="8.0.0" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.0.0" />
-    <PackageVersion Include="Verify.Xunit" Version="25.2.0" />
+    <PackageVersion Include="Verify.Xunit" Version="25.3.0" />
     <PackageVersion Include="Xunit" Version="2.8.1" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.1" />
   </ItemGroup>

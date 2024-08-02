@@ -40,11 +40,11 @@ public static class ProcessRunner
         {
             var timeoutError =
                 $"""
-                Process timed out.
-                Command line: {command} {arguments}.
-                Output: {string.Join(Environment.NewLine, output)}
-                Error: {errorBuilder}
-                """;
+                 Process timed out.
+                 Command line: {command} {arguments}.
+                 Output: {string.Join(Environment.NewLine, output)}
+                 Error: {errorBuilder}
+                 """;
             throw new Error(timeoutError);
         }
 
@@ -58,22 +58,22 @@ public static class ProcessRunner
         {
             var message =
                 $"""
-            The dotnet tool `dotnet-symbol` was not found.
-            Command line: {command} {arguments}
-            To install, run in the root of the repository
-                dotnet new tool-manifest
-                dotnet tool install dotnet-symbol
-            """;
+                 The dotnet tool `dotnet-symbol` was not found.
+                 Command line: {command} {arguments}
+                 To install, run in the root of the repository
+                     dotnet new tool-manifest
+                     dotnet tool install dotnet-symbol
+                 """;
             throw new Error(message);
         }
 
         var error =
             $"""
-            Could not execute process.
-            Command line: {command} {arguments}.
-            Output: {string.Join(Environment.NewLine, output)}
-            Error: {errors}
-            """;
+             Could not execute process.
+             Command line: {command} {arguments}.
+             Output: {string.Join(Environment.NewLine, output)}
+             Error: {errors}
+             """;
         throw new Error(error);
     }
 }

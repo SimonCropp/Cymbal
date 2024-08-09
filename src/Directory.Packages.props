@@ -10,7 +10,7 @@
     <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="17.10.4" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="5.2.1" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
-    <PackageVersion Include="Polyfill" Version="6.2.0" />
+    <PackageVersion Include="Polyfill" Version="6.2.2" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.134" />
     <PackageVersion Include="Serilog.AspNetCore" Version="8.0.2" />
     <PackageVersion Include="System.Reflection.Metadata" Version="8.0.0" />

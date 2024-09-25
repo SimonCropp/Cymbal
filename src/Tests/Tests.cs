@@ -78,6 +78,7 @@ public class Tests : IAsyncDisposable
                 })
             .UseParameters(environmentCache, propertyCache)
             .UniqueForRuntime()
+            .ScrubEmptyLines()
             .ScrubLinesWithReplace(_ => _.Replace('\\', '/'))
             .ScrubLinesContaining(
                 "Build started",
@@ -87,6 +88,7 @@ public class Tests : IAsyncDisposable
                 "Build Engine version",
                 "Copying file from ",
                 "Copyright (C) Microsoft Corporation",
+                "Workload updates are available",
                 "MSBuild version");
     }
 

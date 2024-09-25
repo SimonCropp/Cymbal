@@ -35,7 +35,7 @@ public static class SymbolDownloader
         }
         else if (line.StartsWith("Writing: "))
         {
-            var scrubbedLine = line.Replace("Writing: ", "");
+            var scrubbedLine = line[9..];
             foundSymbols.Add(scrubbedLine);
         }
     }

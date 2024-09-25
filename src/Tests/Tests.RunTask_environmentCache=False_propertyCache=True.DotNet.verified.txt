@@ -115,14 +115,9 @@
          	Serilog.Sinks.Console.pdb
          	Serilog.Sinks.Debug.pdb
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).
-
 Build succeeded.
     0 Warning(s)
-    0 Error(s)
-
-,
-  consoleOutput:
-asdas
-,
+    0 Error(s),
+  consoleOutput: asdas,
   consoleError: 
 }

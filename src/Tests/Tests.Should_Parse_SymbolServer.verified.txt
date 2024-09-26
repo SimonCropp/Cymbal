@@ -19,14 +19,9 @@
          	http://localhost:88/symbols
          	http://localhost:89/symbols
      1>Done Building Project "{SolutionDirectory}SampleWithSymbolServer/SampleWithSymbolServer.csproj" (Publish target(s)).
-
 Build succeeded.
     0 Warning(s)
-    0 Error(s)
-
-,
-  consoleOutput:
-Hello, World!
-,
+    0 Error(s),
+  consoleOutput: Hello, World!,
   consoleError: 
 }

@@ -77,19 +77,7 @@ public class Tests : IAsyncDisposable
                     consoleError = runResult.StandardError
                 })
             .UseParameters(environmentCache, propertyCache)
-            .UniqueForRuntime()
-            .ScrubEmptyLines()
-            .ScrubLinesWithReplace(_ => _.Replace('\\', '/'))
-            .ScrubLinesContaining(
-                "Build started",
-                "Time Elapsed",
-                "Finished Cymbal",
-                "Creating directory",
-                "Build Engine version",
-                "Copying file from ",
-                "Copyright (C) Microsoft Corporation",
-                "Workload updates are available",
-                "MSBuild version");
+            .UniqueForRuntime();
     }
 
     [Fact]
@@ -126,22 +114,12 @@ public class Tests : IAsyncDisposable
         var runResult = await RunDotnet(appPath);
 
         await Verify(
-                new
-                {
-                    buildOutput = publishResult.StandardOutput,
-                    consoleOutput = runResult.StandardOutput,
-                    consoleError = runResult.StandardError
-                })
-            .ScrubLinesWithReplace(_ => _.Replace('\\', '/'))
-            .ScrubLinesContaining(
-                "Build started",
-                "Time Elapsed",
-                "Finished Cymbal",
-                "Creating directory",
-                "Build Engine version",
-                "Copying file from ",
-                "Copyright (C) Microsoft Corporation",
-                "MSBuild version");
+            new
+            {
+                buildOutput = publishResult.StandardOutput,
+                consoleOutput = runResult.StandardOutput,
+                consoleError = runResult.StandardError
+            });
     }
 
     static Task<BufferedCommandResult> RunDotnet(string arguments) =>

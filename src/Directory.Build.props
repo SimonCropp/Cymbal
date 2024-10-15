@@ -8,9 +8,8 @@
     <Configurations>Debug;Release;IncludeTask</Configurations>
     <NoWarn>NETSDK1057</NoWarn>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
-<!--    <NuGetAuditMode>all</NuGetAuditMode>-->
-<!--    <NuGetAuditLevel>low</NuGetAuditLevel>-->
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
   </PropertyGroup>
 </Project>

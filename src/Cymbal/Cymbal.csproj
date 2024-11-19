@@ -20,7 +20,7 @@
       <Pack>true</Pack>
       <PackagePath>build</PackagePath>
     </Content>
-    <PackageReference Include="System.Reflection.Metadata" />
+    <PackageReference Include="System.Reflection.Metadata" PrivateAssets="All" />
     <Using Include="System.Reflection.PortableExecutable" />
     <Using Include="Microsoft.Build.Framework" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />

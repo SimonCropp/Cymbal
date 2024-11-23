@@ -14,13 +14,22 @@ When an exception occurs, the runtime uses the symbols to correlate the each cod
 
 There are three approaches to managing symbols in .net:
 
- 1. [Embedded inside the assembly](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli#include-pdb-files-inside-the-bundle).
-    This works in the same way development time and in the deployed app. With the side effect of an assemblies size increases by 20-30%. It does not effect startup time of apps as the symbols are only loaded interrogated when an exception occurs.
- 2. Shipping a pdb file
-    This works by having a pdb named the same as an assembly and co-located in the same directory. When an exception occurs the runtime will use that convention to look for the symbols.
-    There are some known problems with this approach: [1458](https://github.com/dotnet/sdk/issues/1458) and [38322](https://github.com/dotnet/sdk/issues/38322).
- 3. [Shipping a symbols nuget package](https://learn.microsoft.com/en-us/nuget/create-packages/symbol-packages-snupkg)
-    This is a specialized nuget package that is shipped to a symbol server. When an exception occurs, the symbols package can download to augment the stack trace. At development time this is handled by the IDE and debugger. In a deployed app this is problematic since the app would need to download the symbols package. Instead the debug experience is usually done by a developer getting the stack trace (with no symbol information) and then, using the known assembly versions of the deployed app, augment the stack trace.
+
+### 1. [Embedded inside the assembly](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli#include-pdb-files-inside-the-bundle).
+
+This works in the same way development time and in the deployed app. With the side effect of an assemblies size increases by 20-30%. It does not effect startup time of apps as the symbols are only loaded interrogated when an exception occurs.
+
+
+### 2. Shipping a pdb file
+
+This works by having a pdb named the same as an assembly and co-located in the same directory. When an exception occurs the runtime will use that convention to look for the symbols.
+
+There are some known problems with this approach: [1458](https://github.com/dotnet/sdk/issues/1458) and [38322](https://github.com/dotnet/sdk/issues/38322).
+
+
+### 3. [Shipping a symbols nuget package](https://learn.microsoft.com/en-us/nuget/create-packages/symbol-packages-snupkg)
+
+This is a specialized nuget package that is shipped to a symbol server. When an exception occurs, the symbols package can download to augment the stack trace. At development time this is handled by the IDE and debugger. In a deployed app this is problematic since the app would need to download the symbols package. Instead the debug experience is usually done by a developer getting the stack trace (with no symbol information) and then, using the known assembly versions of the deployed app, augment the stack trace.
 
 
 ## Cymbal performs two operations

@@ -8,12 +8,34 @@ Cymbal is an MSBuild task that enables bundling dotnet symbols for references wi
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
 
+## How symbols work in .net
+
+When an exception occurs, the runtime uses the symbols to correlate the each code point in the stack trace with a line number and file path that the code was built from. Without symbols no line numbers or file paths exist in the stack trace. This make working out what was the cause of the exception
+
+There are three approaches to managing symbols in .net:
+
+ 1. [Embedded inside the assembly](https://learn.microsoft.com/en-us/dotnet/core/deploying/single-file/overview?tabs=cli#include-pdb-files-inside-the-bundle).
+    This works in the same way development time and in the deployed app. With the side effect of an assemblies size increases by 20-30%. It does not effect startup time of apps as the symbols are only loaded interrogated when an exception occurs.
+ 2. Shipping a pdb file
+    This works by having a pdb named the same as an assembly and co-located in the same directory. When an exception occurs the runtime will use that convention to look for the symbols.
+    There are some known problems with this approach: [1458](https://github.com/dotnet/sdk/issues/1458) and [38322](https://github.com/dotnet/sdk/issues/38322).
+ 3. [Shipping a symbols nuget package](https://learn.microsoft.com/en-us/nuget/create-packages/symbol-packages-snupkg)
+    This is a specialized nuget package that is shipped to a symbol server. When an exception occurs, the symbols package can download to augment the stack trace. At development time this is handled by the IDE and debugger. In a deployed app this is problematic since the app would need to download the symbols package. Instead the debug experience is usually done by a developer getting the stack trace (with no symbol information) and then, using the known assembly versions of the deployed app, augment the stack trace.
+
+
 ## Cymbal performs two operations
+
+Cymbal targets last two scenarios (pdb files, and symbol packages) to ensure that symbol information is available to a deployed app.
 
 
 ### 1. Copies symbols from references
 
-Works around [symbols not being copied from references](https://github.com/dotnet/sdk/issues/1458). This is done via manipulating `ReferenceCopyLocalPaths`:
+Works around the following bugs that cause pdb not to be copied to the output directory:
+
+ * [New project system doesn't copy PDBs from packages](https://github.com/dotnet/sdk/issues/1458)
+ * [CopyDebugSymbolFilesFromPackages does not copy pdbs from runtime dir](https://github.com/dotnet/sdk/issues/38322)
+
+This is done via manipulating `ReferenceCopyLocalPaths`:
 
 <!-- snippet: IncludeSymbolFromReferences -->
 <a id='snippet-IncludeSymbolFromReferences'></a>

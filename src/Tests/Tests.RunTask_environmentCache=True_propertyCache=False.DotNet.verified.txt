@@ -15,10 +15,8 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithPdb.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.SqlServer.Server.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/SampleApp.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
          Skipped assemblies with embedded symbols:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.dll
          Assemblies to process:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithNoSymbols.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.dll
@@ -37,10 +35,12 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.AspNetCore.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Formatting.Compact.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Debug.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.ClientModel.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.dll
@@ -81,8 +81,12 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.AspNetCore.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.ClientModel.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
@@ -97,8 +101,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net8.0/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net8.0/System.Runtime.Caching.pdb
          Missing Symbols:
-         	Serilog.AspNetCore.pdb
-         	Serilog.Extensions.Hosting.pdb
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Console.pdb
          	Serilog.Sinks.Debug.pdb

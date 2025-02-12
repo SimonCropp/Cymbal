@@ -9,15 +9,15 @@ public static class ModuleInitializer
 
         VerifierSettings.ScrubEmptyLines();
         VerifierSettings.ScrubLinesWithReplace(_ => _.Replace('\\', '/'));
-        VerifierSettings  .ScrubLinesContaining(
-                "Build started",
-                "Time Elapsed",
-                "Finished Cymbal",
-                "Creating directory",
-                "Build Engine version",
-                "Copying file from ",
-                "Copyright (C) Microsoft Corporation",
-                "Workload updates are available",
-                "MSBuild version");
+        VerifierSettings.ScrubLinesContaining(
+            "Build started",
+            "Time Elapsed",
+            "Finished Cymbal",
+            "Creating directory",
+            "Build Engine version",
+            "Copying file from ",
+            "Copyright (C) Microsoft Corporation",
+            "Workload updates are available",
+            "MSBuild version");
     }
 }

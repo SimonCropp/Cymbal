@@ -1,9 +1,6 @@
 ﻿{
   buildOutput:
      1>Project "{SolutionDirectory}SampleWithSymbolServer/SampleWithSymbolServer.csproj" on node 1 (Publish target(s)).
-     1>PrepareForPublish:
-       _CopyResolvedFilesToPublishPreserveNewest:
-       _CopyResolvedFilesToPublishAlways:
        Publish:
          SampleWithSymbolServer -> {SolutionDirectory}SampleWithSymbolServer/bin/IncludeTask/publish/
        CymbalTarget:

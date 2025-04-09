@@ -35,7 +35,7 @@ public class Tests : IAsyncDisposable
             Directory.Delete(includeTaskDir, true);
         }
 
-        await RunDotnet("build --configuration IncludeTask");
+        await RunDotnet("build --configuration IncludeTask --no-incremental");
 
         var environmentVariables = new Dictionary<string, string?>();
         if (environmentCache)
@@ -90,7 +90,7 @@ public class Tests : IAsyncDisposable
             Directory.Delete(includeTaskDir, true);
         }
 
-        await RunDotnet("build --configuration IncludeTask");
+        await RunDotnet("build --configuration IncludeTask --no-incremental");
 
         var arguments = "publish --configuration IncludeTask --no-build --no-restore --verbosity normal";
 

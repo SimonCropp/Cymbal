@@ -10,6 +10,7 @@ public static class ModuleInitializer
         VerifierSettings.ScrubEmptyLines();
         VerifierSettings.ScrubLinesWithReplace(_ => _.Replace('\\', '/'));
         VerifierSettings.ScrubLinesContaining(
+            "CopyResolved",
             "Build started",
             "Time Elapsed",
             "Finished Cymbal",

@@ -17,16 +17,15 @@ public class Tests : IAsyncDisposable
         }
     }
 
-    [Fact]
+    [Test]
     public void HasEmbedded()
     {
-        Assert.True(SymbolChecker.HasEmbedded(typeof(Tests).Assembly.Location));
-        Assert.False(SymbolChecker.HasEmbedded(typeof(object).Assembly.Location));
+        True(SymbolChecker.HasEmbedded(typeof(Tests).Assembly.Location));
+        False(SymbolChecker.HasEmbedded(typeof(object).Assembly.Location));
     }
 
-    [Theory]
-    [MemberData(nameof(GetData))]
-    public async Task RunTask(bool environmentCache, bool propertyCache)
+    [Test]
+    public async Task RunTask([Values] bool environmentCache, [Values] bool propertyCache)
     {
         var sampleAppPath = Path.Combine(solutionDir, "SampleApp");
         var includeTaskDir = Path.Combine(sampleAppPath, @"bin\IncludeTask");
@@ -80,7 +79,7 @@ public class Tests : IAsyncDisposable
             .UniqueForRuntime();
     }
 
-    [Fact]
+    [Test]
     public async Task Should_Parse_SymbolServer()
     {
         var sampleAppPath = Path.Combine(solutionDir, "SampleWithSymbolServer");
@@ -129,25 +128,6 @@ public class Tests : IAsyncDisposable
             .WithValidation(CommandResultValidation.None)
             .ExecuteBufferedAsync();
 
-    static bool[] bools =
-    [
-        true,
-        false
-    ];
-
-    public static IEnumerable<object?[]> GetData()
-    {
-        foreach (var environmentCache in bools)
-        foreach (var propertyCache in bools)
-        {
-            yield return
-            [
-                environmentCache,
-                propertyCache
-            ];
-        }
-    }
-
     public ValueTask DisposeAsync()
     {
         if (BuildServerDetector.Detected)
@@ -155,6 +135,6 @@ public class Tests : IAsyncDisposable
             return ValueTask.CompletedTask;
         }
 
-        return new (RunDotnet("build-server shutdown"));
+        return new(RunDotnet("build-server shutdown"));
     }
 }

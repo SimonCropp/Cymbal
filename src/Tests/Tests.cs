@@ -55,14 +55,16 @@ public class Tests : IAsyncDisposable
             .WithEnvironmentVariables(environmentVariables)
             .ExecuteBufferedAsync();
 
-        if (publishResult.StandardError.Length > 0)
+        var publishError = publishResult.StandardError;
+        if (publishError.Length > 0)
         {
-            throw new(publishResult.StandardError);
+            throw new(publishError);
         }
 
-        if (publishResult.StandardOutput.Contains("error"))
+        var publishOutput = publishResult.StandardOutput;
+        if (publishOutput.Contains("error"))
         {
-            throw new(publishResult.StandardOutput.Replace(solutionDir, ""));
+            throw new(publishOutput.Replace(solutionDir, ""));
         }
 
         var appPath = Path.Combine(solutionDir, "SampleApp/bin/IncludeTask/SampleApp.dll");
@@ -71,7 +73,7 @@ public class Tests : IAsyncDisposable
         await Verify(
                 new
                 {
-                    buildOutput = publishResult.StandardOutput,
+                    buildOutput = publishOutput,
                     consoleOutput = runResult.StandardOutput,
                     consoleError = runResult.StandardError
                 })

@@ -5,7 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="CliWrap" Version="3.8.2" />
-    <PackageVersion Include="MarkdownSnippets.MsBuild" Version="27.0.2" />
+    <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.0.0-beta.1" />
     <PackageVersion Include="Microsoft.AspNetCore.Components" Version="9.0.4" />
     <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="17.13.9" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.0.2" />

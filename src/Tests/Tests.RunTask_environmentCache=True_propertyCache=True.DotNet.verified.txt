@@ -93,6 +93,8 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
@@ -107,22 +109,24 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.ClientModel.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Diagnostics.EventLog.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.Pkcs.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Diagnostics.EventLog.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.pdb
          Missing Symbols:
-         	Microsoft.Extensions.Options.pdb
-         	Microsoft.Extensions.Primitives.pdb
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Console.pdb
          	Serilog.Sinks.Debug.pdb
-         	System.ClientModel.pdb
-         	System.Configuration.ConfigurationManager.pdb
-         	System.Diagnostics.EventLog.pdb
-         	System.Memory.Data.pdb
-         	System.Security.Cryptography.Pkcs.pdb
-         	System.Security.Cryptography.ProtectedData.pdb
-         	Microsoft.Data.SqlClient.SNI.pdb
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).
 Build succeeded.
     0 Warning(s)

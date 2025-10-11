@@ -81,7 +81,6 @@
          	https://msdl.microsoft.com/download/symbols/
          Symbols written:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
@@ -124,6 +123,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Diagnostics.EventLog.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.pdb
          Missing Symbols:
+         	Azure.Identity.pdb
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Console.pdb
          	Serilog.Sinks.Debug.pdb

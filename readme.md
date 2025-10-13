@@ -85,6 +85,14 @@ https://nuget.org/packages/Cymbal/
 Install-Package Cymbal
 ```
 
+## Run only in Release
+
+Cymbal takes some time to execute. It is recommended to only run in `Release` builds.
+
+```
+<PackageReference Include="Cymbal" PrivateAssets="all" Condition="$(Configuration)=='Release'" />
+```
+
 
 ## Outcome
 
@@ -275,6 +283,7 @@ dotnet tool restore --tool-manifest src/.config/dotnet-tools.json
  * https://symbols.nuget.org/download/symbols 
  * https://msdl.microsoft.com/download/symbols/ 
 
+
 ### Overriding symbol servers
 
 Add the following to the project or `Directory.Build.props`:
@@ -306,5 +315,3 @@ The MSBuild property take priority over the environment variable.
 ## Icon
 
 [Cymbals](https://thenounproject.com/term/cymbals/4920970/) designed by [Eucalyp](https://thenounproject.com/eucalyp) from [The Noun Project](https://thenounproject.com).
-
-

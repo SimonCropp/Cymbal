@@ -9,7 +9,7 @@ public class Tests : IAsyncDisposable
 
     static Tests()
     {
-        solutionDir = AttributeReader.GetSolutionDirectory();
+        solutionDir = ProjectFiles.SolutionDirectory;
         cacheDirectory = Path.Combine(solutionDir, "Cache");
         if (Directory.Exists(cacheDirectory))
         {

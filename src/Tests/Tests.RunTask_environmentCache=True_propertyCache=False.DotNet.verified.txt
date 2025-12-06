@@ -19,19 +19,10 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithNoSymbols.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.Cryptography.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Caching.Abstractions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Caching.Memory.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.dll
@@ -51,10 +42,8 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.ClientModel.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Diagnostics.EventLog.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.Pkcs.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/cs/Microsoft.Data.SqlClient.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/de/Microsoft.Data.SqlClient.resources.dll
@@ -74,26 +63,15 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Diagnostics.EventLog.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.dll
          Symbol servers used:
          	https://symbols.nuget.org/download/symbols
          	https://msdl.microsoft.com/download/symbols/
          Symbols written:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.Cryptography.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Caching.Abstractions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Caching.Memory.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.Extensions.Msal.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
@@ -107,25 +85,21 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Logging.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.ClientModel.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Diagnostics.EventLog.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Memory.Data.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.Pkcs.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Diagnostics.EventLog.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.pdb
          Missing Symbols:
          	Azure.Identity.pdb
          	Serilog.Formatting.Compact.pdb
-         	Serilog.Sinks.Console.pdb
          	Serilog.Sinks.Debug.pdb
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).
 Build succeeded.

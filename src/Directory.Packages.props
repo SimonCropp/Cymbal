@@ -13,7 +13,7 @@
     <PackageVersion Include="Microsoft.Sbom.Targets" Version="4.1.4" />
     <PackageVersion Include="NUnit" Version="4.4.0" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.0.0" />
-    <PackageVersion Include="Polyfill" Version="9.3.1" />
+    <PackageVersion Include="Polyfill" Version="9.3.2" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.163" />
     <PackageVersion Include="ProjectFiles" Version="0.2.0" />
     <PackageVersion Include="Serilog.AspNetCore" Version="10.0.0" />

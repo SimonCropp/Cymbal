@@ -18,7 +18,7 @@
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NUnit" />
     <PackageReference Include="CliWrap" />
-    <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" Condition="$(Configuration)=='Release'" />
+    <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" Condition="'$(CI)' == 'true'" />
     <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
   </ItemGroup>
 </Project>

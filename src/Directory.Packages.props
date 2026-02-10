@@ -6,7 +6,7 @@
   <ItemGroup>
     <PackageVersion Include="CliWrap" Version="3.10.0" />
     <PackageVersion Include="MarkdownSnippets.MsBuild" Version="28.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="10.0.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components" Version="10.0.3" />
     <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="18.0.2" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.4" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
@@ -17,10 +17,10 @@
     <PackageVersion Include="ProjectDefaults" Version="1.0.172" />
     <PackageVersion Include="ProjectFiles" Version="0.5.0" />
     <PackageVersion Include="Serilog.AspNetCore" Version="10.0.0" />
-    <PackageVersion Include="System.Reflection.Metadata" Version="10.0.2" />
+    <PackageVersion Include="System.Reflection.Metadata" Version="10.0.3" />
     <PackageVersion Include="Verify.DiffPlex" Version="3.1.2" />
-    <PackageVersion Include="Verify.NUnit" Version="31.12.3" />
-    <PackageVersion Include="Verify.XunitV3" Version="31.12.3" />
+    <PackageVersion Include="Verify.NUnit" Version="31.12.4" />
+    <PackageVersion Include="Verify.XunitV3" Version="31.12.4" />
     <PackageVersion Include="xunit.v3" Version="3.2.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
   </ItemGroup>

@@ -20,7 +20,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.Cryptography.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.dll
@@ -68,8 +67,8 @@
          	https://msdl.microsoft.com/download/symbols/
          Symbols written:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Core.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Azure.Identity.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.AsyncInterfaces.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.Cryptography.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Identity.Client.pdb
@@ -98,7 +97,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.pdb
          Missing Symbols:
-         	Azure.Identity.pdb
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Debug.pdb
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).

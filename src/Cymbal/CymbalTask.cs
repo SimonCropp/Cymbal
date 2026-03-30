@@ -7,6 +7,8 @@ public class CymbalTask :
     const string msdlSymbolServer = "https://msdl.microsoft.com/download/symbols/";
     const string nugetSymbolServer = "https://symbols.nuget.org/download/symbols";
 
+    CancellationTokenSource? cts;
+
     [Required]
     public string PublishDirectory { get; set; } = null!;
 
@@ -22,7 +24,7 @@ public class CymbalTask :
             InnerExecute();
             return true;
         }
-        catch (Error exception)
+        catch (Exception exception)
         {
             Log.LogError($"Cymbal: {exception.Message}");
             return false;
@@ -35,6 +37,8 @@ public class CymbalTask :
 
     void InnerExecute()
     {
+        cts = new CancellationTokenSource();
+
         string? cacheDirectory;
         var environmentCacheDirectory = Environment.GetEnvironmentVariable("CymbalCacheDirectory");
         if (CacheDirectory == null)
@@ -84,7 +88,7 @@ public class CymbalTask :
         var symbolServers = SymbolServers ?? defaultSymbolServers;
         Log.LogMessageFromText($"Symbol servers used:{ListToIndented(symbolServers)}", MessageImportance.Normal);
 
-        var (missingSymbols, foundSymbols) = SymbolDownloader.Run(cacheDirectory, toDownload, symbolServers);
+        var (missingSymbols, foundSymbols) = SymbolDownloader.Run(cacheDirectory, toDownload, symbolServers, cts.Token);
 
         if (foundSymbols.Count != 0)
         {
@@ -134,5 +138,6 @@ public class CymbalTask :
 
     public void Cancel()
     {
+        cts?.Cancel();
     }
 }

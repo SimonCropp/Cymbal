@@ -62,7 +62,7 @@ This is done via manipulating `ReferenceCopyLocalPaths`:
   </ItemGroup>
 </Target>
 ```
-<sup><a href='/src/Cymbal/build/Cymbal.targets#L19-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-IncludeSymbolFromReferences' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Cymbal/build/Cymbal.targets#L23-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-IncludeSymbolFromReferences' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 This is done at Build time.

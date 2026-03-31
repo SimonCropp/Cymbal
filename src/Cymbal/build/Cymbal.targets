@@ -1,7 +1,11 @@
 ﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <CymbalAssembly>$(MSBuildThisFileDirectory)..\task\Cymbal.dll</CymbalAssembly>
-    <CymbalAssembly Condition="!Exists($(CymbalAssembly))">$(MSBuildThisFileDirectory)..\bin\IncludeTask\Cymbal.dll</CymbalAssembly>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' == 'Core'">
+    <CymbalAssembly>$(MSBuildThisFileDirectory)..\task\net10.0\Cymbal.dll</CymbalAssembly>
+    <CymbalAssembly Condition="!Exists($(CymbalAssembly))">$(MSBuildThisFileDirectory)..\bin\IncludeTask\net10.0\Cymbal.dll</CymbalAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildRuntimeType)' != 'Core'">
+    <CymbalAssembly>$(MSBuildThisFileDirectory)..\task\net48\Cymbal.dll</CymbalAssembly>
+    <CymbalAssembly Condition="!Exists($(CymbalAssembly))">$(MSBuildThisFileDirectory)..\bin\IncludeTask\net48\Cymbal.dll</CymbalAssembly>
   </PropertyGroup>
 
   <UsingTask

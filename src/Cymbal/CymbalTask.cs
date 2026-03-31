@@ -136,8 +136,5 @@ public class CymbalTask :
         return (hasPdb, isEmbedded, toDownload);
     }
 
-    public void Cancel()
-    {
-        cts?.Cancel();
-    }
+    public void Cancel() => cts?.Cancel();
 }

@@ -50,8 +50,19 @@ public static class SymbolDownloader
                 }
             }
 
-            // Try symbol servers
-            byte[]? pdbBytes = null;
+            // Try symbol servers — stream directly to cache (or target if no cache)
+            string? downloadPath;
+            if (cacheDirectory != null)
+            {
+                downloadPath = GetCachePath(cacheDirectory, pdbInfo.Key);
+                Directory.CreateDirectory(Path.GetDirectoryName(downloadPath)!);
+            }
+            else
+            {
+                downloadPath = targetPath;
+            }
+
+            var downloaded = false;
             foreach (var server in symbolServers)
             {
                 if (failedServers.Contains(server))
@@ -59,28 +70,27 @@ public static class SymbolDownloader
                     continue;
                 }
 
-                var result = await TryDownloadAsync(client, server, pdbInfo, cancel).ConfigureAwait(false);
+                var result = await TryDownloadAsync(client, server, pdbInfo, downloadPath, cancel).ConfigureAwait(false);
                 if (result.StickyFailure)
                 {
                     failedServers.Add(server);
                 }
 
-                if (result.Data != null)
+                if (result.Success)
                 {
-                    pdbBytes = result.Data;
+                    downloaded = true;
                     break;
                 }
             }
 
-            if (pdbBytes != null)
+            if (downloaded)
             {
-                File.WriteAllBytes(targetPath, pdbBytes);
-                foundSymbols.Add(targetPath);
-
-                if (cacheDirectory != null)
+                if (downloadPath != targetPath)
                 {
-                    WriteToCache(cacheDirectory, pdbInfo.Key, pdbBytes);
+                    File.Copy(downloadPath, targetPath, overwrite: true);
                 }
+
+                foundSymbols.Add(targetPath);
             }
             else
             {
@@ -96,7 +106,7 @@ public static class SymbolDownloader
 
     record PdbInfo(string Key, string PdbFileName, string? Checksum);
 
-    record DownloadResult(byte[]? Data, bool StickyFailure);
+    record DownloadResult(bool Success, bool StickyFailure);
 
     static PdbInfo? GetPdbInfo(string assemblyPath)
     {
@@ -151,6 +161,7 @@ public static class SymbolDownloader
         HttpClient client,
         string server,
         PdbInfo pdbInfo,
+        string destinationPath,
         Cancel cancel)
     {
         var escapedKey = string.Join("/", pdbInfo.Key.Split('/').Select(Uri.EscapeDataString));
@@ -158,7 +169,7 @@ public static class SymbolDownloader
 
         if (!Uri.TryCreate(baseUri, escapedKey, out var requestUri))
         {
-            return new(null, false);
+            return new(false, false);
         }
 
         const int maxRetries = 3;
@@ -173,34 +184,35 @@ public static class SymbolDownloader
                     request.Headers.Add("SymbolChecksum", pdbInfo.Checksum);
                 }
 
-                using var response = await client.SendAsync(request, cancel).ConfigureAwait(false);
+                using var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancel).ConfigureAwait(false);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    var data = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
-                    return new(data, false);
+                    using var fileStream = new FileStream(destinationPath, FileMode.Create, FileAccess.Write, FileShare.None);
+                    await response.Content.CopyToAsync(fileStream).ConfigureAwait(false);
+                    return new(true, false);
                 }
 
                 if (response.StatusCode == HttpStatusCode.NotFound)
                 {
-                    return new(null, false);
+                    return new(false, false);
                 }
 
                 if (!IsRetryableStatus(response.StatusCode))
                 {
-                    return new(null, StickyFailure: true);
+                    return new(false, StickyFailure: true);
                 }
             }
             catch (HttpRequestException ex)
             {
                 if (!IsRetryableException(ex))
                 {
-                    return new(null, StickyFailure: true);
+                    return new(false, StickyFailure: true);
                 }
 
                 if (attempt >= maxRetries)
                 {
-                    return new(null, false);
+                    return new(false, false);
                 }
             }
 
@@ -210,7 +222,7 @@ public static class SymbolDownloader
             }
         }
 
-        return new(null, false);
+        return new(false, false);
     }
 
     static bool IsRetryableStatus(HttpStatusCode status) =>
@@ -241,16 +253,4 @@ public static class SymbolDownloader
     static string GetCachePath(string cacheDirectory, string key) =>
         Path.Combine(cacheDirectory, key.Replace('/', Path.DirectorySeparatorChar));
 
-    static void WriteToCache(string cacheDirectory, string key, byte[] data)
-    {
-        try
-        {
-            var cachePath = GetCachePath(cacheDirectory, key);
-            Directory.CreateDirectory(Path.GetDirectoryName(cachePath)!);
-            File.WriteAllBytes(cachePath, data);
-        }
-        catch (Exception ex) when (ex is UnauthorizedAccessException or IOException)
-        {
-        }
-    }
 }

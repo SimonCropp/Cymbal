@@ -1,5 +1,3 @@
-using System.Net;
-using System.Net.Http;
 using System.Net.Sockets;
 
 public static class SymbolDownloader
@@ -8,8 +6,8 @@ public static class SymbolDownloader
         string? cacheDirectory,
         List<string> toDownload,
         string[] symbolServers,
-        CancellationToken cancellationToken = default) =>
-        RunAsync(cacheDirectory, toDownload, symbolServers, cancellationToken)
+        Cancel cancel = default) =>
+        RunAsync(cacheDirectory, toDownload, symbolServers, cancel)
             .GetAwaiter()
             .GetResult();
 
@@ -17,7 +15,7 @@ public static class SymbolDownloader
         string? cacheDirectory,
         List<string> toDownload,
         string[] symbolServers,
-        CancellationToken cancellationToken)
+        Cancel cancel)
     {
         var missingSymbols = new List<string>();
         var foundSymbols = new List<string>();
@@ -30,7 +28,7 @@ public static class SymbolDownloader
 
         foreach (var assemblyPath in toDownload)
         {
-            cancellationToken.ThrowIfCancellationRequested();
+            cancel.ThrowIfCancellationRequested();
 
             var pdbInfo = GetPdbInfo(assemblyPath);
             if (pdbInfo == null)
@@ -61,7 +59,7 @@ public static class SymbolDownloader
                     continue;
                 }
 
-                var result = await TryDownloadAsync(client, server, pdbInfo, cancellationToken).ConfigureAwait(false);
+                var result = await TryDownloadAsync(client, server, pdbInfo, cancel).ConfigureAwait(false);
                 if (result.StickyFailure)
                 {
                     failedServers.Add(server);
@@ -140,7 +138,7 @@ public static class SymbolDownloader
                 }
             }
 
-            return key != null ? new PdbInfo(key, pdbFileName!, checksum) : null;
+            return key == null ? null : new PdbInfo(key, pdbFileName!, checksum);
         }
         catch (Exception ex) when (ex is BadImageFormatException or InvalidOperationException or IOException)
         {
@@ -153,7 +151,7 @@ public static class SymbolDownloader
         HttpClient client,
         string server,
         PdbInfo pdbInfo,
-        CancellationToken token)
+        Cancel cancel)
     {
         var escapedKey = string.Join("/", pdbInfo.Key.Split('/').Select(Uri.EscapeDataString));
         var baseUri = new Uri(server.TrimEnd('/') + "/");
@@ -175,7 +173,7 @@ public static class SymbolDownloader
                     request.Headers.Add("SymbolChecksum", pdbInfo.Checksum);
                 }
 
-                using var response = await client.SendAsync(request, token).ConfigureAwait(false);
+                using var response = await client.SendAsync(request, cancel).ConfigureAwait(false);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -208,7 +206,7 @@ public static class SymbolDownloader
 
             if (attempt < maxRetries)
             {
-                await Task.Delay(TimeSpan.FromMilliseconds(Math.Pow(2, attempt + 1) * 100), token).ConfigureAwait(false);
+                await Task.Delay(TimeSpan.FromMilliseconds(Math.Pow(2, attempt + 1) * 100), cancel).ConfigureAwait(false);
             }
         }
 

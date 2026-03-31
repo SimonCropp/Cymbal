@@ -7,7 +7,7 @@ public class CymbalTask :
     const string msdlSymbolServer = "https://msdl.microsoft.com/download/symbols/";
     const string nugetSymbolServer = "https://symbols.nuget.org/download/symbols";
 
-    CancellationTokenSource? cts;
+    CancelSource? cts;
 
     [Required]
     public string PublishDirectory { get; set; } = null!;
@@ -37,7 +37,7 @@ public class CymbalTask :
 
     void InnerExecute()
     {
-        cts = new CancellationTokenSource();
+        cts = new CancelSource();
 
         string? cacheDirectory;
         var environmentCacheDirectory = Environment.GetEnvironmentVariable("CymbalCacheDirectory");

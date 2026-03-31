@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http;
+using System.Net.Sockets;
 
 public static class SymbolDownloader
 {
@@ -20,6 +21,7 @@ public static class SymbolDownloader
     {
         var missingSymbols = new List<string>();
         var foundSymbols = new List<string>();
+        var failedServers = new HashSet<string>();
 
         using var client = new HttpClient
         {
@@ -30,10 +32,9 @@ public static class SymbolDownloader
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            var key = GetPdbKey(assemblyPath);
-            if (key == null)
+            var pdbInfo = GetPdbInfo(assemblyPath);
+            if (pdbInfo == null)
             {
-                missingSymbols.Add(Path.GetFileName(assemblyPath));
                 continue;
             }
 
@@ -42,7 +43,7 @@ public static class SymbolDownloader
             // Try cache first
             if (cacheDirectory != null)
             {
-                var cachePath = GetCachePath(cacheDirectory, key);
+                var cachePath = GetCachePath(cacheDirectory, pdbInfo.Key);
                 if (File.Exists(cachePath))
                 {
                     File.Copy(cachePath, targetPath, overwrite: true);
@@ -55,9 +56,20 @@ public static class SymbolDownloader
             byte[]? pdbBytes = null;
             foreach (var server in symbolServers)
             {
-                pdbBytes = await TryDownloadAsync(client, server, key, cancellationToken).ConfigureAwait(false);
-                if (pdbBytes != null)
+                if (failedServers.Contains(server))
                 {
+                    continue;
+                }
+
+                var result = await TryDownloadAsync(client, server, pdbInfo, cancellationToken).ConfigureAwait(false);
+                if (result.StickyFailure)
+                {
+                    failedServers.Add(server);
+                }
+
+                if (result.Data != null)
+                {
+                    pdbBytes = result.Data;
                     break;
                 }
             }
@@ -69,47 +81,66 @@ public static class SymbolDownloader
 
                 if (cacheDirectory != null)
                 {
-                    WriteToCache(cacheDirectory, key, pdbBytes);
+                    WriteToCache(cacheDirectory, pdbInfo.Key, pdbBytes);
                 }
             }
             else
             {
-                missingSymbols.Add(Path.GetFileName(assemblyPath));
+                if (!missingSymbols.Contains(pdbInfo.PdbFileName))
+                {
+                    missingSymbols.Add(pdbInfo.PdbFileName);
+                }
             }
         }
 
         return (missingSymbols, foundSymbols);
     }
 
-    static string? GetPdbKey(string assemblyPath)
+    record PdbInfo(string Key, string PdbFileName, string? Checksum);
+
+    record DownloadResult(byte[]? Data, bool StickyFailure);
+
+    static PdbInfo? GetPdbInfo(string assemblyPath)
     {
         try
         {
             using var stream = new FileStream(assemblyPath, FileMode.Open, FileAccess.Read, FileShare.Read);
             using var reader = new PEReader(stream);
+            var entries = reader.ReadDebugDirectory();
 
-            foreach (var entry in reader.ReadDebugDirectory())
+            string? key = null;
+            string? pdbFileName = null;
+            string? checksum = null;
+
+            foreach (var entry in entries)
             {
-                if (entry.Type != DebugDirectoryEntryType.CodeView)
+                if (entry.Type == DebugDirectoryEntryType.CodeView && key == null)
                 {
-                    continue;
-                }
+                    var codeView = reader.ReadCodeViewDebugDirectoryData(entry);
+                    if (string.IsNullOrEmpty(codeView.Path))
+                    {
+                        continue;
+                    }
 
-                var codeView = reader.ReadCodeViewDebugDirectoryData(entry);
-                if (string.IsNullOrEmpty(codeView.Path))
+                    pdbFileName = Path.GetFileName(codeView.Path);
+                    var pdbFileNameLower = pdbFileName.ToLowerInvariant();
+                    var isPortable = entry.MinorVersion == 0x504d;
+
+                    var id = isPortable
+                        ? codeView.Guid.ToString("N") + "FFFFFFFF"
+                        : codeView.Guid.ToString("N") + codeView.Age.ToString("x");
+
+                    key = $"{pdbFileNameLower}/{id}/{pdbFileNameLower}";
+                }
+                else if (entry.Type == DebugDirectoryEntryType.PdbChecksum && checksum == null)
                 {
-                    continue;
+                    var cs = reader.ReadPdbChecksumDebugDirectoryData(entry);
+                    var hex = BitConverter.ToString(cs.Checksum.ToArray()).Replace("-", "").ToLowerInvariant();
+                    checksum = $"{cs.AlgorithmName}:{hex}";
                 }
-
-                var pdbFileName = Path.GetFileName(codeView.Path).ToLowerInvariant();
-                var isPortable = entry.MinorVersion == 0x504d;
-
-                var id = isPortable
-                    ? codeView.Guid.ToString("N") + "FFFFFFFF"
-                    : codeView.Guid.ToString("N") + codeView.Age.ToString("x");
-
-                return $"{pdbFileName}/{id}/{pdbFileName}";
             }
+
+            return key != null ? new PdbInfo(key, pdbFileName!, checksum) : null;
         }
         catch (Exception ex) when (ex is BadImageFormatException or InvalidOperationException or IOException)
         {
@@ -118,18 +149,18 @@ public static class SymbolDownloader
         return null;
     }
 
-    static async Task<byte[]?> TryDownloadAsync(
+    static async Task<DownloadResult> TryDownloadAsync(
         HttpClient client,
         string server,
-        string key,
+        PdbInfo pdbInfo,
         CancellationToken token)
     {
-        var escapedKey = string.Join("/", key.Split('/').Select(Uri.EscapeDataString));
+        var escapedKey = string.Join("/", pdbInfo.Key.Split('/').Select(Uri.EscapeDataString));
         var baseUri = new Uri(server.TrimEnd('/') + "/");
 
         if (!Uri.TryCreate(baseUri, escapedKey, out var requestUri))
         {
-            return null;
+            return new(null, false);
         }
 
         const int maxRetries = 3;
@@ -138,28 +169,40 @@ public static class SymbolDownloader
         {
             try
             {
-                using var response = await client.GetAsync(requestUri, token).ConfigureAwait(false);
+                using var request = new HttpRequestMessage(HttpMethod.Get, requestUri);
+                if (pdbInfo.Checksum != null)
+                {
+                    request.Headers.Add("SymbolChecksum", pdbInfo.Checksum);
+                }
+
+                using var response = await client.SendAsync(request, token).ConfigureAwait(false);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    return await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
+                    var data = await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
+                    return new(data, false);
                 }
 
                 if (response.StatusCode == HttpStatusCode.NotFound)
                 {
-                    return null;
+                    return new(null, false);
                 }
 
-                if (!IsRetryable(response.StatusCode))
+                if (!IsRetryableStatus(response.StatusCode))
                 {
-                    return null;
+                    return new(null, StickyFailure: true);
                 }
             }
-            catch (HttpRequestException)
+            catch (HttpRequestException ex)
             {
+                if (!IsRetryableException(ex))
+                {
+                    return new(null, StickyFailure: true);
+                }
+
                 if (attempt >= maxRetries)
                 {
-                    return null;
+                    return new(null, false);
                 }
             }
 
@@ -169,15 +212,33 @@ public static class SymbolDownloader
             }
         }
 
-        return null;
+        return new(null, false);
     }
 
-    static bool IsRetryable(HttpStatusCode status) =>
+    static bool IsRetryableStatus(HttpStatusCode status) =>
         status is HttpStatusCode.RequestTimeout
             or HttpStatusCode.InternalServerError
             or HttpStatusCode.BadGateway
             or HttpStatusCode.ServiceUnavailable
             or HttpStatusCode.GatewayTimeout;
+
+    static bool IsRetryableException(HttpRequestException ex)
+    {
+        for (var inner = ex.InnerException; inner != null; inner = inner.InnerException)
+        {
+            if (inner is SocketException se)
+            {
+                return se.SocketErrorCode is
+                    SocketError.ConnectionReset or
+                    SocketError.ConnectionAborted or
+                    SocketError.Shutdown or
+                    SocketError.TimedOut or
+                    SocketError.TryAgain;
+            }
+        }
+
+        return false;
+    }
 
     static string GetCachePath(string cacheDirectory, string key) =>
         Path.Combine(cacheDirectory, key.Replace('/', Path.DirectorySeparatorChar));

@@ -1,0 +1,7 @@
+﻿{
+  found: false,
+  pdbExists: false,
+  missingSymbols: [
+    DiffPlex.pdb
+  ]
+}

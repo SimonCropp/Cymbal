@@ -123,6 +123,51 @@ public class Tests : IAsyncDisposable
             });
     }
 
+    [TestCaseSource(nameof(AssemblyNames))]
+    public async Task ResolveSymbol(string assemblyName)
+    {
+        var sourceDll = Path.Combine(AppContext.BaseDirectory, $"{assemblyName}.dll");
+        var tempDir = Path.Combine(Path.GetTempPath(), "CymbalResolveSymbol", assemblyName);
+        if (Directory.Exists(tempDir))
+        {
+            Directory.Delete(tempDir, true);
+        }
+
+        Directory.CreateDirectory(tempDir);
+        var targetDll = Path.Combine(tempDir, $"{assemblyName}.dll");
+        File.Copy(sourceDll, targetDll);
+
+        string[] symbolServers =
+        [
+            "https://symbols.nuget.org/download/symbols",
+            "https://msdl.microsoft.com/download/symbols/"
+        ];
+
+        var (missingSymbols, foundSymbols) = SymbolDownloader.Run(
+            Path.Combine(Path.GetTempPath(), "CymbalResolveSymbolCache"),
+            [targetDll],
+            symbolServers);
+
+        var pdbPath = Path.ChangeExtension(targetDll, ".pdb");
+        await Verify(
+                new
+                {
+                    found = foundSymbols.Count > 0,
+                    pdbExists = File.Exists(pdbPath),
+                    missingSymbols
+                })
+            .UseParameters(assemblyName);
+    }
+
+    static string[] AssemblyNames =
+    [
+        "Newtonsoft.Json",
+        "DiffPlex",
+        "Microsoft.Extensions.DependencyModel",
+        "System.Configuration.ConfigurationManager",
+        "SimpleInfoName"
+    ];
+
     static Task<BufferedCommandResult> RunDotnet(string arguments) =>
         Cli.Wrap("dotnet")
             .WithArguments(arguments)

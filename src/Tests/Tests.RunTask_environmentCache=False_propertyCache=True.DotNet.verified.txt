@@ -17,24 +17,11 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithEmbeddedSymbols.dll
          Assemblies to process:
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/AssemblyWithNoSymbols.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.Cryptography.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Extensions.Abstractions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Internal.Logging.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Configuration.Abstractions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Configuration.Binder.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Configuration.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Diagnostics.Abstractions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Diagnostics.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Logging.Abstractions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.ConfigurationExtensions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.dll
@@ -75,23 +62,11 @@
          	https://symbols.nuget.org/download/symbols
          	https://msdl.microsoft.com/download/symbols/
          Symbols written:
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Authorization.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Components.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.AspNetCore.Metadata.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Bcl.Cryptography.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Extensions.Abstractions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Internal.Logging.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Configuration.Abstractions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Configuration.Binder.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Configuration.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyInjection.Abstractions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Diagnostics.Abstractions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Diagnostics.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.ConfigurationExtensions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Options.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.Primitives.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.pdb
@@ -105,6 +80,7 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Settings.Configuration.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.pdb
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
@@ -113,10 +89,8 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.pdb
          Missing Symbols:
-         	Microsoft.Extensions.Logging.Abstractions.pdb
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Debug.pdb
-         	System.Configuration.ConfigurationManager.pdb
      1>Done Building Project "{SolutionDirectory}SampleApp/SampleApp.csproj" (Publish target(s)).
 Build succeeded.
     0 Warning(s)

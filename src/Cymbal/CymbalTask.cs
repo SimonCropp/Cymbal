@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Task = Microsoft.Build.Utilities.Task;
 
 public class CymbalTask :

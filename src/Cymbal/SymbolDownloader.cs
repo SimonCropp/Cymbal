@@ -1,4 +1,3 @@
-using System.Net.Sockets;
 using Replicant;
 
 public static class SymbolDownloader
@@ -75,7 +74,7 @@ public static class SymbolDownloader
                         break;
                     }
 
-                    if (response.StatusCode == HttpStatusCode.NotFound)
+                    if (response.StatusCode is HttpStatusCode.NotFound or HttpStatusCode.Forbidden)
                     {
                         continue;
                     }
@@ -85,12 +84,8 @@ public static class SymbolDownloader
                         failedServers.Add(server);
                     }
                 }
-                catch (HttpRequestException ex)
+                catch (HttpRequestException)
                 {
-                    if (!IsRetryableException(ex))
-                    {
-                        failedServers.Add(server);
-                    }
                 }
             }
 
@@ -179,22 +174,4 @@ public static class SymbolDownloader
             or HttpStatusCode.BadGateway
             or HttpStatusCode.ServiceUnavailable
             or HttpStatusCode.GatewayTimeout;
-
-    static bool IsRetryableException(HttpRequestException ex)
-    {
-        for (var inner = ex.InnerException; inner != null; inner = inner.InnerException)
-        {
-            if (inner is SocketException se)
-            {
-                return se.SocketErrorCode is
-                    SocketError.ConnectionReset or
-                    SocketError.ConnectionAborted or
-                    SocketError.Shutdown or
-                    SocketError.TimedOut or
-                    SocketError.TryAgain;
-            }
-        }
-
-        return false;
-    }
 }

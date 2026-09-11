@@ -254,7 +254,7 @@ This will result in a `.config/dotnet-tools.json` file:
   "isRoot": true,
   "tools": {
     "dotnet-symbol": {
-      "version": "10.0.731102",
+      "version": "10.0.745401",
       "commands": [
         "dotnet-symbol"
       ]

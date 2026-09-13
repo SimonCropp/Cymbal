@@ -6,11 +6,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>preview</LangVersion>
     <Configurations>Debug;Release;IncludeTask</Configurations>
-    <NoWarn>NETSDK1057;NU1608;NU1109;SC023</NoWarn>
+    <NoWarn>NETSDK1057;NU1608;NU1109</NoWarn>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
-    <Verify_SponsorshipLicenseIgnored>true</Verify_SponsorshipLicenseIgnored>
+    <Verify_SponsorshipExemption>OpenSource</Verify_SponsorshipExemption>
+    <Verify_SponsorshipExemptionUntil>2027-08</Verify_SponsorshipExemptionUntil>
   </PropertyGroup>
 </Project>

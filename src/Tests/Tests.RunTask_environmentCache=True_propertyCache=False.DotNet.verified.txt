@@ -87,7 +87,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.pdb
          Missing Symbols:
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Debug.pdb

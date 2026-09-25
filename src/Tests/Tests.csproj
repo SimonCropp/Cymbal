@@ -23,7 +23,7 @@
     <PackageReference Include="SimpleInfoName" />
     <PackageReference Include="Verify" />
     <PackageReference Include="CliWrap" />
-    <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" Condition="'$(CI)' == 'true'" />
+    <PackageReference Include="Sbom" PrivateAssets="all" />
     <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
   </ItemGroup>
 </Project>

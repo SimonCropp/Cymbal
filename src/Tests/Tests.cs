@@ -2,6 +2,9 @@
 using CliWrap.Buffered;
 using DiffEngine;
 
+namespace CymbalTests;
+
+[NotInParallel]
 public class Tests : IAsyncDisposable
 {
     static string solutionDir;
@@ -18,14 +21,18 @@ public class Tests : IAsyncDisposable
     }
 
     [Test]
-    public void HasEmbedded()
+    public async Task HasEmbedded()
     {
-        True(SymbolChecker.HasEmbedded(typeof(Tests).Assembly.Location));
-        False(SymbolChecker.HasEmbedded(typeof(object).Assembly.Location));
+        await Assert.That(SymbolChecker.HasEmbedded(typeof(Tests).Assembly.Location)).IsTrue();
+        await Assert.That(SymbolChecker.HasEmbedded(typeof(object).Assembly.Location)).IsFalse();
     }
 
     [Test]
-    public async Task RunTask([Values] bool environmentCache, [Values] bool propertyCache)
+    [Arguments(false, false)]
+    [Arguments(false, true)]
+    [Arguments(true, false)]
+    [Arguments(true, true)]
+    public async Task RunTask(bool environmentCache, bool propertyCache)
     {
         var sampleAppPath = Path.Combine(solutionDir, "SampleApp");
         var includeTaskDir = Path.Combine(sampleAppPath, @"bin\IncludeTask");

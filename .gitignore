@@ -14,3 +14,4 @@ src/Verify.Tests/Tests.TextNegative.verified.tmp
 src/Cache/
 /src/Tests/TestResults
 *.lnk
+TestResults/

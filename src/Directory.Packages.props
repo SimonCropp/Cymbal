@@ -9,7 +9,7 @@
     <PackageVersion Include="Microsoft.AspNetCore.Components" Version="10.0.12" />
     <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="18.10.1" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="7.1.1" />
-    <PackageVersion Include="Polyfill" Version="11.4.1" />
+    <PackageVersion Include="Polyfill" Version="11.4.3" />
     <PackageVersion Include="ProjectDefaults" Version="1.0.182" />
     <PackageVersion Include="ProjectFiles" Version="1.6.0" />
     <PackageVersion Include="Sbom" Version="0.3.1" />

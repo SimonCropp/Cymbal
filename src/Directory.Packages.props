@@ -10,19 +10,19 @@
     <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="18.10.1" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="7.1.1" />
     <PackageVersion Include="Polyfill" Version="11.4.3" />
-    <PackageVersion Include="ProjectDefaults" Version="1.0.182" />
+    <PackageVersion Include="ProjectDefaults" Version="1.0.184" />
     <PackageVersion Include="ProjectFiles" Version="1.6.0" />
     <PackageVersion Include="Sbom" Version="0.3.1" />
     <PackageVersion Include="Serilog.AspNetCore" Version="10.0.0" />
     <PackageVersion Include="System.Reflection.Metadata" Version="10.0.12" />
-    <PackageVersion Include="Verify.TUnit" Version="33.3.1" />
+    <PackageVersion Include="Verify.TUnit" Version="33.3.2-beta.1" />
     <PackageVersion Include="TUnit" Version="1.72.16" />
-    <PackageVersion Include="Verify.XunitV3" Version="33.3.0" />
+    <PackageVersion Include="Verify.XunitV3" Version="33.3.2-beta.1" />
     <PackageVersion Include="xunit.v3" Version="4.0.1" />
     <PackageVersion Include="Argon" Version="0.38.0" />
     <PackageVersion Include="DiffEngine" Version="20.7.0" />
     <PackageVersion Include="EmptyFiles" Version="8.20.0" />
     <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
-    <PackageVersion Include="Verify" Version="33.3.1" />
+    <PackageVersion Include="Verify" Version="33.3.2-beta.1" />
   </ItemGroup>
 </Project>

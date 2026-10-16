@@ -9,6 +9,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components" />
     <PackageReference Include="Microsoft.Data.SqlClient" />
     <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="System.Security.Cryptography.Pkcs" />
     <ProjectReference Include="..\AssemblyWithEmbeddedSymbols\AssemblyWithEmbeddedSymbols.csproj" />
     <ProjectReference Include="..\AssemblyWithNoSymbols\AssemblyWithNoSymbols.csproj" />
     <ProjectReference Include="..\AssemblyWithPdb\AssemblyWithPdb.csproj" />

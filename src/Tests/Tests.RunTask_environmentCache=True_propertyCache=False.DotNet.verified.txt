@@ -22,12 +22,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Extensions.Abstractions.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Internal.Logging.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.AspNetCore.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.dll
@@ -38,26 +32,36 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Debug.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/cs/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/cs/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/de/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/de/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/es/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/es/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/fr/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/fr/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/it/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/it/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ja/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ja/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ko/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ko/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/pl/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/pl/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/pt-BR/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/pt-BR/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ru/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/ru/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/tr/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/tr/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/zh-Hans/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/zh-Hans/Microsoft.Data.SqlClient.resources.dll
+         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/zh-Hant/Microsoft.Data.SqlClient.Extensions.Abstractions.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/zh-Hant/Microsoft.Data.SqlClient.resources.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.dll
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win/lib/net9.0/Microsoft.Data.SqlClient.dll
          Symbol servers used:
          	https://symbols.nuget.org/download/symbols
          	https://msdl.microsoft.com/download/symbols/
@@ -67,12 +71,6 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Extensions.Abstractions.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Data.SqlClient.Internal.Logging.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.Extensions.DependencyModel.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Abstractions.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.JsonWebTokens.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Logging.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Protocols.OpenIdConnect.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Microsoft.IdentityModel.Tokens.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.AspNetCore.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Extensions.Hosting.pdb
@@ -81,12 +79,10 @@
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.Console.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/Serilog.Sinks.File.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Configuration.ConfigurationManager.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.IdentityModel.Tokens.Jwt.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/System.Security.Cryptography.ProtectedData.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.pdb
          	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.pdb
-         	{SolutionDirectory}SampleApp/bin/IncludeTask/publish/runtimes/unix/lib/net9.0/Microsoft.Data.SqlClient.pdb
          Missing Symbols:
          	Serilog.Formatting.Compact.pdb
          	Serilog.Sinks.Debug.pdb
